@@ -8,9 +8,16 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
   <head>
-    <title>$Title$</title>
+    <title>FitCoder</title>
+    <style>
+      form {
+        text-align: center;
+      }
+    </style>
   </head>
   <body>
-  $END$
+    <form name="login" action="login.jsp" method="post">
+      <input type="submit" value="Login"/>
+    </form>
   </body>
 </html>
