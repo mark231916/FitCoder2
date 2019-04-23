@@ -10,7 +10,7 @@ public class User {
     private float weight, height, BMI;
     Date creationDate;
 
-    User(String username, String password)
+    public User(String username, String password)
     {
         this.username=username;
         //NOTE: Create Hash Function for Password

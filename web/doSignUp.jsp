@@ -1,4 +1,4 @@
-<%--
+<%@ page import="main.User" %><%--
   Created by IntelliJ IDEA.
   User: mark231916
   Date: 2019-04-23
@@ -8,9 +8,15 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>FitCoder</title>
 </head>
 <body>
-
+<%
+    String username = request.getParameter("username");
+    String psw = request.getParameter("psw");
+    System.out.println(username);
+    System.out.println(psw);
+    User user = new User(username, psw);
+%>
 </body>
 </html>
