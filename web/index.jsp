@@ -103,6 +103,15 @@
       position: relative;
     }
 
+    .imgcontainer a {
+        color: black;
+        text-align: center;
+        padding: 16px 16px;
+        text-decoration: none;
+        font-size: 30px;
+        font-family: 'Aldrich';
+    }
+
     img.avatar {
       width: 40%;
       border-radius: 50%;
@@ -182,6 +191,19 @@
         width: 100%;
       }
     }
+
+    .img-background {
+      background-image: url('/img/gym.jpg');
+
+      /* Full height */
+      height: 100%;
+
+      /* Center and scale the image nicely */
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
   </style>
 </head>
 <body>
@@ -202,7 +224,7 @@
   <form class="modal-content animate" action="doLogin.jsp" method="post">
     <div class="imgcontainer">
       <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
-      <img src="" alt="Logo" class="avatar">
+        <a href="index.jsp">FitCoder</a>
     </div>
 
     <div class="container">
