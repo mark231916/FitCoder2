@@ -27,7 +27,6 @@
             top: 0;
             width: 100%;
         }
-
         .topnav a {
             float: left;
             display: block;
@@ -38,7 +37,6 @@
             font-size: 30px;
             font-family: 'Aldrich';
         }
-
         .topnav a:hover {
             background-color: #ddd;
             color: black;
