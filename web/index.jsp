@@ -11,7 +11,34 @@
   <title>FitCoder</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
-    body {font-family: Arial, Helvetica, sans-serif;}
+    body {font-family: Arial, Helvetica, sans-serif; margin: 0;}
+    .topnav {
+      overflow: hidden;
+      background-color: #e9e9e9;
+      position: fixed;
+      top: 0;
+      width: 100%;
+    }
+
+    .topnav a {
+      float: left;
+      display: block;
+      color: black;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+      font-size: 30px;
+    }
+
+    .topnav a:hover {
+      background-color: #ddd;
+      color: black;
+    }
+
+
+    .topnav .login-container {
+      float: right;
+    }
 
     /* Full-width input fields */
     input[type=text], input[type=password] {
@@ -23,6 +50,26 @@
       box-sizing: border-box;
     }
 
+    #wrapper {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .topnav .login-container button {
+      float: right;
+      padding: 22px 20px;
+      margin-top: 0px;
+      margin-right: 0px;
+      margin-bottom: 0px;
+      background-color: #555;
+      color: white;
+      font-size: 17px;
+      border: none;
+      cursor: pointer;
+    }
     /* Set a style for all buttons */
     button {
       background-color: #4CAF50;
@@ -32,6 +79,8 @@
       border: none;
       cursor: pointer;
       width: 100%;
+      left: 50%;
+      top: 50%;
     }
 
     button:hover {
@@ -131,20 +180,33 @@
         width: 100%;
       }
     }
+
+    .main {
+      padding: 16px;
+      margin-top: 40px;
+      height: 1500px;
+    }
   </style>
 </head>
 <body>
 
-<h2>Modal Login Form</h2>
+<div class="topnav">
+  <a href="index.jsp">FitCoder</a>
+  <div class="login-container">
+    <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button>
+  </div>
+</div>
 
-<button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button>
+<div class="main" id="wrapper">
+  <p>Project Description: </p>
+</div>
 
 <div id="id01" class="modal">
 
   <form class="modal-content animate" action="doLogin.jsp" method="post">
     <div class="imgcontainer">
       <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
-      <img src="img_avatar2.png" alt="Avatar" class="avatar">
+      <img src="" alt="Avatar" class="avatar">
     </div>
 
     <div class="container">
