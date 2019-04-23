@@ -1,12 +1,16 @@
+import java.util.Date;
+
 public class User {
     private String username, password, email, name;
     private float weight, height, BMI;
-    private int idealCalorieConsumption;
+    Date creationDate;
 
     User(String username, String password)
     {
         this.username=username;
+        //NOTE: Create Hash Function for Password
         this.password=password;
+        creationDate=new Date();
     }
 
     public void setEmail(String email) {
@@ -29,9 +33,7 @@ public class User {
         this.weight = weight;
     }
 
-    public void setIdealCalorieConsumption(int idealCalorieConsumption) {
-        this.idealCalorieConsumption = idealCalorieConsumption;
-    }
+
 
     public float getBMI() {
         return BMI;
@@ -51,10 +53,6 @@ public class User {
 
     public String getName() {
         return name;
-    }
-
-    public int getIdealCalorieConsumption() {
-        return idealCalorieConsumption;
     }
 
     public String getPassword() {
