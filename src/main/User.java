@@ -19,23 +19,28 @@ public class User {
 
 
         try {
-            AddUserInfo();
+            AddToUserList();
+            MakeUserFile();
         } catch (IOException e) {
             e.printStackTrace();
         }
 
     }
 
-    private void AddUserInfo() throws IOException {
-        String filename= "/Users/mark231916/FitCoder2/UserList.txt";
-        System.out.println(filename);
-        BufferedWriter writer = new BufferedWriter(new FileWriter(filename));
-        writer.append(' ');
-        writer.append(username);
-        writer.append("\t");
-        writer.append(password);
-        writer.append("\n");
+    private void AddToUserList() throws IOException {
+        String filename="C:\\Users\\arshp\\IdeaProjects\\FitCoder2\\UserData\\UserList.txt";
+        //System.out.println(filename);
+
+        BufferedWriter writer = new BufferedWriter(new FileWriter(filename, true));
+        writer.write(username);
+        writer.write("\t");
+        writer.write(password);
+        writer.write("\n");
         writer.close();
+    }
+
+    private void MakeUserFile()
+    {
 
     }
 
