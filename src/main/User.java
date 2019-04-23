@@ -27,7 +27,7 @@ public class User {
     }
 
     private void AddUserInfo() throws IOException {
-        String filename= System.getProperty("user.dir") + "\\UserList.txt";
+        String filename= "/Users/mark231916/FitCoder2/UserList.txt";
         System.out.println(filename);
         BufferedWriter writer = new BufferedWriter(new FileWriter(filename));
         writer.append(' ');
