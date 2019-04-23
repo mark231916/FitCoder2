@@ -1,14 +1,39 @@
 package main;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Date;
+
 public class User {
     private String username, password, email, name;
     private float weight, height, BMI;
-    private int idealCalorieConsumption;
+    Date creationDate;
 
-    public User(String username, String password)
+    User(String username, String password)
     {
         this.username=username;
+        //NOTE: Create Hash Function for Password
         this.password=password;
+        creationDate=new Date();
+
+
+
+        try {
+            AddUserInfo();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    public void AddUserInfo() throws IOException {
+        BufferedWriter writer = new BufferedWriter(new FileWriter("UserList.txt"));
+        writer.append(username);
+        writer.append("\t");
+        writer.append(password);
+        writer.append("\n");
+        writer.close();
     }
 
     public void setEmail(String email) {
@@ -31,10 +56,6 @@ public class User {
         this.weight = weight;
     }
 
-    public void setIdealCalorieConsumption(int idealCalorieConsumption) {
-        this.idealCalorieConsumption = idealCalorieConsumption;
-    }
-
     public float getBMI() {
         return BMI;
     }
@@ -55,10 +76,6 @@ public class User {
         return name;
     }
 
-    public int getIdealCalorieConsumption() {
-        return idealCalorieConsumption;
-    }
-
     public String getPassword() {
         return password;
     }
@@ -66,4 +83,9 @@ public class User {
     public String getUsername() {
         return username;
     }
+
+    public void setBMI() {
+        BMI=weight/(height*height);
+    }
+
 }
