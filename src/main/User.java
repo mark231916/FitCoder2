@@ -7,15 +7,23 @@ import java.util.Date;
 
 public class User {
     private String username, password, email, name;
-    private float weight, height, BMI;
+    private float weight, GoalWeight, height, BMI;
+
+
     Date creationDate;
 
-    public User(String username, String password)
-    {
-        this.username=username;
+    public User(String username, String password) throws IOException {
+        this.username = username;
         //NOTE: Create Hash Function for Password
-        this.password=password;
-        creationDate=new Date();
+        this.password = password;
+        creationDate = new Date();
+
+        email = " ";
+        name = " ";
+        weight = 0;
+        GoalWeight = 0;
+        height = 0;
+        BMI = 0;
 
 
         try {
@@ -24,9 +32,7 @@ public class User {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
-
     private void AddToUserList() throws IOException {
         String filename="C:\\Users\\arshp\\IdeaProjects\\FitCoder2\\UserData\\UserList.txt";
         //System.out.println(filename);
@@ -39,29 +45,53 @@ public class User {
         writer.close();
     }
 
-    private void MakeUserFile()
-    {
+    private void MakeUserFile() throws IOException {
+        String filename="C:\\Users\\arshp\\IdeaProjects\\FitCoder2\\UserData\\" + username;
 
+        BufferedWriter writer = new BufferedWriter(new FileWriter(filename));
+
+        writer.write("username: ");
+        writer.append(getUsername());
+        writer.append("\nEmail: ");
+        writer.append(getEmail());
+        writer.append("\nName: ");
+        writer.append(getName());
+        writer.append("\nDate Created: ");
+        writer.append(getCreationDate().toString());
+        writer.append("\n\nWeight: ");
+        writer.append(Float.toString(getWeight()));
+        writer.append("\nGoal Weight: ");
+        writer.append(Float.toString(getGoalWeight()));
+        writer.append("\nHeight: ");
+        writer.append(Float.toString(getHeight()));
+        writer.append("\nBMI: ");
+        writer.append(Float.toString(getBMI()));
+        writer.close();
     }
 
-    public void setEmail(String email) {
+    public void setEmail(String email) throws IOException {
         this.email = email;
+        MakeUserFile();
     }
 
-    public void setName(String name) {
+    public void setName(String name) throws IOException {
         this.name = name;
+        MakeUserFile();
     }
 
-    public void setHeight(float height) {
+    public void setHeight(float height) throws IOException {
         this.height = height;
+        MakeUserFile();
     }
 
-    public void setPassword(String password) {
+    public void setPassword(String password) throws IOException {
         this.password = password;
+        MakeUserFile();
     }
 
-    public void setWeight(float weight) {
+    public void setWeight(float weight) throws IOException {
         this.weight = weight;
+        MakeUserFile();
     }
 
     public float getBMI() {
@@ -84,16 +114,25 @@ public class User {
         return name;
     }
 
-    public String getPassword() {
-        return password;
-    }
-
     public String getUsername() {
         return username;
     }
 
-    public void setBMI() {
+    public void setBMI() throws IOException {
         BMI=weight/(height*height);
+        MakeUserFile();
+    }
+
+    public void setGoalWeight(float goalWeight) throws IOException {
+        GoalWeight = goalWeight;
+        MakeUserFile();
+    }
+
+    public float getGoalWeight() {
+        return GoalWeight; }
+
+    public Date getCreationDate() {
+        return creationDate;
     }
 
 }

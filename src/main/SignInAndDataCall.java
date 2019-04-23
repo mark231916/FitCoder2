@@ -1,5 +1,7 @@
 package main;
 
+import java.io.IOException;
+
 public class SignInAndDataCall {
     User USERSIGNIN;
     SignInAndDataCall(String useername, String password){
@@ -9,6 +11,10 @@ public class SignInAndDataCall {
     //Testing Purpose
     public static void main(String[] args) {
 
-        User test=new User("Hello", "World");
+        try {
+            User test=new User("Hello", "World");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
