@@ -69,24 +69,29 @@ public class User {
         writer.close();
     }
 
-    public void setEmail(String email) {
+    public void setEmail(String email) throws IOException {
         this.email = email;
+        MakeUserFile();
     }
 
-    public void setName(String name) {
+    public void setName(String name) throws IOException {
         this.name = name;
+        MakeUserFile();
     }
 
-    public void setHeight(float height) {
+    public void setHeight(float height) throws IOException {
         this.height = height;
+        MakeUserFile();
     }
 
-    public void setPassword(String password) {
+    public void setPassword(String password) throws IOException {
         this.password = password;
+        MakeUserFile();
     }
 
-    public void setWeight(float weight) {
+    public void setWeight(float weight) throws IOException {
         this.weight = weight;
+        MakeUserFile();
     }
 
     public float getBMI() {
@@ -109,20 +114,18 @@ public class User {
         return name;
     }
 
-    public String getPassword() {
-        return password;
-    }
-
     public String getUsername() {
         return username;
     }
 
-    public void setBMI() {
+    public void setBMI() throws IOException {
         BMI=weight/(height*height);
+        MakeUserFile();
     }
 
-    public void setGoalWeight(float goalWeight) {
+    public void setGoalWeight(float goalWeight) throws IOException {
         GoalWeight = goalWeight;
+        MakeUserFile();
     }
 
     public float getGoalWeight() {
