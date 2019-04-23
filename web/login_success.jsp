@@ -1,6 +1,6 @@
 <%--
   Created by IntelliJ IDEA.
-  User: mark231916
+  main.User: mark231916
   Date: 2019-04-18
   Time: 23:31
   To change this template use File | Settings | File Templates.
@@ -49,7 +49,7 @@
             margin-top: 0px;
             margin-right: 0px;
             margin-bottom: 0px;
-            background-color: #555;
+            background-color: #4DB6AC;
             color: white;
             font-size: 17px;
             border: none;

@@ -1,6 +1,6 @@
 <%--
   Created by IntelliJ IDEA.
-  User: mark231916
+  main.User: mark231916
   Date: 4/17/2019
   Time: 3:37 PM
   To change this template use File | Settings | File Templates.
@@ -66,7 +66,7 @@
       margin-top: 0px;
       margin-right: 0px;
       margin-bottom: 0px;
-      background-color: #555;
+      background-color: #4DB6AC;
       color: white;
       font-size: 17px;
       border: none;
@@ -74,7 +74,7 @@
     }
     /* Set a style for all buttons */
     button {
-      background-color: #4CAF50;
+      background-color: #4DB6AC;
       color: white;
       padding: 14px 20px;
       margin: 8px 0;
