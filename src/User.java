@@ -1,3 +1,6 @@
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Date;
 
 public class User {
@@ -11,6 +14,24 @@ public class User {
         //NOTE: Create Hash Function for Password
         this.password=password;
         creationDate=new Date();
+
+
+
+        try {
+            AddUserInfo();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    public void AddUserInfo() throws IOException {
+        BufferedWriter writer = new BufferedWriter(new FileWriter("UserList.txt"));
+        writer.append(username);
+        writer.append("\t");
+        writer.append(password);
+        writer.append("\n");
+        writer.close();
     }
 
     public void setEmail(String email) {
@@ -32,8 +53,6 @@ public class User {
     public void setWeight(float weight) {
         this.weight = weight;
     }
-
-
 
     public float getBMI() {
         return BMI;
