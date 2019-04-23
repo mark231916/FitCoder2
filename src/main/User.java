@@ -129,8 +129,7 @@ public class User {
     }
 
     public float getGoalWeight() {
-        return GoalWeight;
-    }
+        return GoalWeight; }
 
     public Date getCreationDate() {
         return creationDate;
