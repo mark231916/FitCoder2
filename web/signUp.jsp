@@ -14,7 +14,7 @@
     <style>
         body {font-family: Arial, Helvetica, sans-serif; margin: 0;}
         #wrapper {
-            width: 100%;
+            width:100%;
             height: 100%;
             display: flex;
             align-items: center;
