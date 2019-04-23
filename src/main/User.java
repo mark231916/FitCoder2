@@ -18,7 +18,6 @@ public class User {
         creationDate=new Date();
 
 
-
         try {
             AddUserInfo();
         } catch (IOException e) {
@@ -27,13 +26,15 @@ public class User {
 
     }
 
-    public void AddUserInfo() throws IOException {
+    private void AddUserInfo() throws IOException {
         BufferedWriter writer = new BufferedWriter(new FileWriter("UserList.txt"));
+        writer.append(' ');
         writer.append(username);
         writer.append("\t");
         writer.append(password);
         writer.append("\n");
         writer.close();
+
     }
 
     public void setEmail(String email) {
