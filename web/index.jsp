@@ -9,6 +9,7 @@
 <html>
 <head>
   <title>FitCoder</title>
+  <link href='https://fonts.googleapis.com/css?family=Aldrich' rel='stylesheet'>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
     body {font-family: Arial, Helvetica, sans-serif; margin: 0;}
@@ -25,9 +26,10 @@
       display: block;
       color: black;
       text-align: center;
-      padding: 14px 16px;
+      padding: 16px 16px;
       text-decoration: none;
       font-size: 30px;
+      font-family: 'Aldrich';
     }
 
     .topnav a:hover {
@@ -135,7 +137,7 @@
       background-color: #fefefe;
       margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
       border: 1px solid #888;
-      width: 80%; /* Could be more or less, depending on screen size */
+      width: 50%; /* Could be more or less, depending on screen size */
     }
 
     /* The Close Button (x) */
@@ -180,12 +182,6 @@
         width: 100%;
       }
     }
-
-    .main {
-      padding: 16px;
-      margin-top: 40px;
-      height: 1500px;
-    }
   </style>
 </head>
 <body>
@@ -197,7 +193,7 @@
   </div>
 </div>
 
-<div class="main" id="wrapper">
+<div id="wrapper">
   <p>Project Description: </p>
 </div>
 
@@ -206,7 +202,7 @@
   <form class="modal-content animate" action="doLogin.jsp" method="post">
     <div class="imgcontainer">
       <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
-      <img src="" alt="Avatar" class="avatar">
+      <img src="" alt="Logo" class="avatar">
     </div>
 
     <div class="container">
