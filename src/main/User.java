@@ -27,7 +27,9 @@ public class User {
     }
 
     private void AddUserInfo() throws IOException {
-        BufferedWriter writer = new BufferedWriter(new FileWriter("UserList.txt"));
+        String filename= System.getProperty("user.dir") + "\\UserList.txt";
+        System.out.println(filename);
+        BufferedWriter writer = new BufferedWriter(new FileWriter(filename));
         writer.append(' ');
         writer.append(username);
         writer.append("\t");
