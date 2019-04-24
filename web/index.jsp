@@ -52,12 +52,14 @@
       box-sizing: border-box;
     }
 
+
     #wrapper {
       width: 100%;
       height: 100%;
       display: flex;
       align-items: center;
       justify-content: center;
+      background: url(/img/gym.jpg);
     }
 
     .topnav .login-container button {
@@ -125,6 +127,15 @@
       float: right;
       padding-top: 16px;
     }
+    .img-background{
+      background-image: url(img/gym.jpg);
+      background-color: #cccccc;
+      height: 500px;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      position: relative;
+    }
 
     /* The Modal (background) */
     .modal {
@@ -190,18 +201,6 @@
       .cancelbtn {
         width: 100%;
       }
-    }
-
-    .img-background {
-      background-image: url('/img/gym.jpg');
-
-      /* Full height */
-      height: 100%;
-
-      /* Center and scale the image nicely */
-      background-position: center;
-      background-repeat: no-repeat;
-      background-size: cover;
     }
 
   </style>
