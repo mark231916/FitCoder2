@@ -11,7 +11,14 @@ public class SignInAndDataCall {
     //Testing Purpose
     public static void main(String[] args) {
 
-
+        try {
             User test=new User();
+            test.setUsername("hello");
+            test.setPassword("world");
+            test.AddToUserList();
+            test.setWeight(190);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

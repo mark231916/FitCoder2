@@ -19,6 +19,7 @@
     System.out.println(psw);
     user.setUsername(username);
     user.setPassword(psw);
+    user.AddToUserList();
     request.getRequestDispatcher("login_success.jsp").forward(request, response);
 %>
 </body>
