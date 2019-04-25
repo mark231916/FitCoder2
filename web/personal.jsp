@@ -88,6 +88,8 @@
     user.setGoalWeight(goalWeight);
     user.setBMI();
     user.setIdealCalorie();
+    System.out.println(request.getParameter("gender"));
+    user.setGender(request.getParameter("gender"));
 %>
 <div class="topnav">
     <a href="index.jsp">FitCoder</a>

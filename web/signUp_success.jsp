@@ -14,7 +14,8 @@
     <style>
         body {font-family: Arial, Helvetica, sans-serif; margin: 0;}
         #wrapper {
-            width:100%;
+            padding: 10% 10%;
+            width:80%;
             height: 100%;
             display: flex;
             align-items: center;
@@ -101,7 +102,13 @@
         <label><b>Age</b></label>
         <input type="text" placeholder="Please enter your age" name="age" required>
 
-
+        <label><b>Gender</b></label>
+        <select id="gender" name="gender">
+            <option value="0">Please select your gender</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Other">Other</option>
+        </select>
 
         <button type="submit">Finish</button>
     </form>
