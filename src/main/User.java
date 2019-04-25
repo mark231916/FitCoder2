@@ -33,8 +33,19 @@ public class User {
             e.printStackTrace();
         }
     }
+
+
+    public void initUser()
+    {
+        try {
+            AddToUserList();
+            MakeUserFile();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
     private void AddToUserList() throws IOException {
-        String filename="/Users/mark231916/FitCoder2/UserData/UserList.txt";
+        String filename="C:\\Users\\arshp\\IdeaProjects\\FitCoder2\\UserData\\UserList.txt";
         //System.out.println(filename);
 
         BufferedWriter writer = new BufferedWriter(new FileWriter(filename, true));
@@ -46,7 +57,7 @@ public class User {
     }
 
     private void MakeUserFile() throws IOException {
-        String filename="/Users/mark231916/FitCoder2/UserData/" + username;
+        String filename="C:\\Users\\arshp\\IdeaProjects\\FitCoder2\\UserData" + username;
 
         BufferedWriter writer = new BufferedWriter(new FileWriter(filename));
 
