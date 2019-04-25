@@ -14,6 +14,14 @@ public class User {
 
     public User()
     {
+        username=" ";
+        password= " ";
+        email = " ";
+        name = " ";
+        weight = 0;
+        GoalWeight = 0;
+        height = 0;
+        BMI = 0;
 
     }
     public User(String username, String password) throws IOException {
