@@ -85,17 +85,8 @@ public class CreateTableInsertRows {
         try {
             preparedStatement = connection.prepareStatement("INSERT INTO inventory (name, password) VALUES (?, ?);");
             preparedStatement.setString(1, username);
-            //preparedStatement.setInt(2, 150);
             preparedStatement.setString(2, password);
             nRowsInserted += preparedStatement.executeUpdate();
-
-               /* preparedStatement.setString(1, "orange");
-                //preparedStatement.setInt(2, 154);
-                nRowsInserted += preparedStatement.executeUpdate();
-
-                preparedStatement.setString(1, "apple");
-                //preparedStatement.setInt(2, 100);
-                nRowsInserted += preparedStatement.executeUpdate();*/
             System.out.println(String.format("Inserted %d row(s) of data.", nRowsInserted));
         } catch (SQLException e) {
             e.printStackTrace();
