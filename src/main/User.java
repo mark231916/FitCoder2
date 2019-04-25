@@ -12,6 +12,10 @@ public class User {
 
     Date creationDate;
 
+    public User()
+    {
+
+    }
     public User(String username, String password) throws IOException {
         this.username = username;
         //NOTE: Create Hash Function for Password
@@ -103,6 +107,10 @@ public class User {
     public void setWeight(float weight) throws IOException {
         this.weight = weight;
         MakeUserFile();
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public float getBMI() {
