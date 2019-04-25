@@ -19,6 +19,8 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            background: url(/img/gym.jpg);
+            color: rgb(0,0,0);
         }
         .topnav {
             overflow: hidden;
