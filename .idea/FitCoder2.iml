@@ -22,7 +22,7 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://$APPLICATION_HOME_DIR$/plugins/apache-tomcat-9.0.19/lib/servlet-api.jar!/" />
+          <root url="jar://$USER_HOME$/apache-tomcat-8.5.40/lib/servlet-api.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />

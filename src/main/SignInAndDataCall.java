@@ -11,10 +11,7 @@ public class SignInAndDataCall {
     //Testing Purpose
     public static void main(String[] args) {
 
-        try {
-            User test=new User("Hello", "World");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+
+            User test=new User();
     }
 }

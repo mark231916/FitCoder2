@@ -11,12 +11,14 @@
     <title>FitCoder</title>
 </head>
 <body>
+<jsp:useBean id="user" class="main.User" scope="session"/>
 <%
     String username = request.getParameter("username");
     String psw = request.getParameter("psw");
     System.out.println(username);
     System.out.println(psw);
-    User user = new User(username, psw);
+    user.setUsername(username);
+    user.setPassword(psw);
 %>
 </body>
 </html>

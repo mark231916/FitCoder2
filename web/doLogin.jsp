@@ -7,10 +7,13 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
+<jsp:useBean id="user" class="main.User" scope="session"/>
 <%
     String username = request.getParameter("username");
     String psw = request.getParameter("psw");
-    User user = new User(username, psw);
+    user.setUsername(username);
+    user.setPassword(psw);
+    user.initUser();
 
     session.setAttribute("loginUser", username);
     request.getRequestDispatcher("login_success.jsp").forward(request, response);
