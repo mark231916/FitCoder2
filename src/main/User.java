@@ -6,9 +6,9 @@ import java.io.IOException;
 import java.util.Date;
 
 public class User {
-    private String username, password, email, name;
+    private String username, password, email, name, gender, activitymultiplier;
     private float weight, GoalWeight, height, BMI;
-    private int IdealCalorie;
+    private int IdealCalorie, age;
     static CreateTableInsertRows table;
 
     Date creationDate;
@@ -23,6 +23,8 @@ public class User {
         GoalWeight = 0;
         height = 0;
         BMI = 0;
+        age=0;
+        gender="other";
         IdealCalorie=0;
         creationDate = new Date();
 
@@ -60,6 +62,12 @@ public class User {
         writer.append(getEmail());
         writer.append("\nName: ");
         writer.append(getName());
+        writer.append("\nGender: ");
+        writer.append(getGender());
+        writer.append("\nAge: ");
+        writer.append(Integer.toString(getAge()));
+        writer.append("\nDaily Activity: ");
+        writer.append(getActivitymultiplier());
         writer.append("\nDate Created: ");
         writer.append(getCreationDate().toString());
         writer.append("\n\nWeight: ");
@@ -70,8 +78,8 @@ public class User {
         writer.append(Float.toString(getHeight()));
         writer.append("\nBMI: ");
         writer.append(Float.toString(getBMI()));
-        writer.append("\nIdeal Calorie Consumption");
-        writer.append(Integer.toString(IdealCalorie));
+        writer.append("\nIdeal Calorie Consumption: ");
+        writer.append(Integer.toString(getIdealCalorie()));
         writer.close();
     }
 
@@ -109,6 +117,18 @@ public class User {
     }
     public void setIdealCalorie() throws IOException {
         setIdealCalorie(0);
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public void setActivitymultiplier(String activitymultiplier) {
+        this.activitymultiplier = activitymultiplier;
     }
 
     public float getBMI() {
@@ -154,5 +174,17 @@ public class User {
 
     public int getIdealCalorie() {
         return IdealCalorie;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public String getActivitymultiplier() {
+        return activitymultiplier;
     }
 }
