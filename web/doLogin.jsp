@@ -13,7 +13,6 @@
     String psw = request.getParameter("psw");
     user.setUsername(username);
     user.setPassword(psw);
-    user.initUser();
 
     session.setAttribute("loginUser", username);
     request.getRequestDispatcher("login_success.jsp").forward(request, response);
