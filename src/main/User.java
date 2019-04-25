@@ -117,15 +117,15 @@ public class User {
     }
     public void setIdealCalorie() throws IOException {
         float calorie=getGoalWeight();
-        if(getGender()=="Female") calorie*=0.9;
-        else if(getGender()=="Other") calorie*=0.95;
+        if(getGender().equals("Female")) calorie*=0.9;
+        else if(getGender().equals("Other")) calorie*=0.95;
         calorie*=24;
         calorie*=0.85;
-        if(getActivitymultiplier()=="Very Light") calorie*=1.3;
-        else if(getActivitymultiplier()=="Light") calorie*=1.55;
-        else if(getActivitymultiplier()=="Moderate") calorie*=1.65;
-        else if(getActivitymultiplier()=="Heavy") calorie*=1.80;
-        else if(getActivitymultiplier()=="Very Heavy") calorie*=2;
+        if(getActivitymultiplier().equals("Very Light")) calorie*=1.3;
+        else if(getActivitymultiplier().equals("Light")) calorie*=1.55;
+        else if(getActivitymultiplier().equals("Moderate")) calorie*=1.65;
+        else if(getActivitymultiplier().equals("Heavy")) calorie*=1.80;
+        else if(getActivitymultiplier().equals("Very Heavy")) calorie*=2;
 
         setIdealCalorie((int)calorie);
     }
