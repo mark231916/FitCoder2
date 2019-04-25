@@ -98,6 +98,11 @@
         <label><b>Goal Weight</b></label>
         <input type="text" placeholder="Please enter your goal weight in kg" name="goalWeight" required>
 
+        <label><b>Age</b></label>
+        <input type="text" placeholder="Please enter your age" name="age" required>
+
+
+
         <button type="submit">Finish</button>
     </form>
 </div>

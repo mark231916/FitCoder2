@@ -101,7 +101,7 @@
         <br>
         <label><b>Ideal Calorie Consumption</b></label>
         <input type="text" placeholder="Please enter your idea calorie consumption" name="calorie" required>
-        <label><b>(Your ideal calorie consumption is <%=user.getIdealCalorie()%>)</b></label>
+        <label><i>(Your ideal calorie consumption is <%=user.getIdealCalorie()%>)</i></label>
         <button type="submit">Finish</button>
     </form>
 </div>
