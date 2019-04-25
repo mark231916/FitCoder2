@@ -14,7 +14,8 @@
     <style>
         body {font-family: Arial, Helvetica, sans-serif; margin: 0;}
         #wrapper {
-            padding: 10% 10%;
+            padding-left: 10%;
+            padding-right: 10%;
             width:80%;
             height: 100%;
             display: flex;
@@ -103,11 +104,23 @@
         <input type="text" placeholder="Please enter your age" name="age" required>
 
         <label><b>Gender</b></label>
+        <br>
         <select id="gender" name="gender">
             <option value="0">Please select your gender</option>
             <option value="Male">Male</option>
             <option value="Female">Female</option>
             <option value="Other">Other</option>
+        </select>
+        <br>
+        <label><b>Activity Level</b></label>
+        <br>
+        <select id="activity" name="activity">
+            <option value="0">Please select your daily activity level</option>
+            <option value="Very Light">Very Light</option>
+            <option value="Light">Light</option>
+            <option value="Moderate">Moderate</option>
+            <option value="Heavy">Heavy</option>
+            <option value="Very Heavy">Very Heavy</option>
         </select>
 
         <button type="submit">Finish</button>

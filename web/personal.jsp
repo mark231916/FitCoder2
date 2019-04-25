@@ -89,6 +89,7 @@
     user.setBMI();
     user.setIdealCalorie();
     System.out.println(request.getParameter("gender"));
+    user.setActivitymultiplier(request.getParameter("activity"));
     user.setGender(request.getParameter("gender"));
 %>
 <div class="topnav">
