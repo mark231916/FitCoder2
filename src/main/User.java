@@ -116,7 +116,7 @@ public class User {
         MakeUserFile();
     }
     public void setIdealCalorie() throws IOException {
-        float calorie=getWeight();
+        float calorie=getGoalWeight();
         if(getGender()=="Female") calorie*=0.9;
         else if(getGender()=="Other") calorie*=0.95;
         calorie*=24;
