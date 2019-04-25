@@ -87,6 +87,7 @@
     user.setEmail(request.getParameter("email"));
     user.setGoalWeight(goalWeight);
     user.setBMI();
+    user.setIdealCalorie();
 %>
 <div class="topnav">
     <a href="index.jsp">FitCoder</a>
@@ -99,7 +100,7 @@
     <form action="index.jsp" method="post">
         <label><b>Ideal Calorie Consumption</b></label>
         <input type="text" placeholder="Please enter your idea calorie consumption" name="calorie" required>
-        (Your ideal calorie consumption is 0)
+        (Your ideal calorie consumption is <%=user.getIdealCalorie()%>)
         <button type="submit">Finish</button>
     </form>
 </div>

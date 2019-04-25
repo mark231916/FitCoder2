@@ -103,11 +103,11 @@ public class User {
         this.username = username;
     }
 
-    public void setIdealCalorie(int idealCalorie) {
+    public void setIdealCalorie(int idealCalorie) throws IOException {
         IdealCalorie = idealCalorie;
+        MakeUserFile();
     }
-    public void setIdealCalorie()
-    {
+    public void setIdealCalorie() throws IOException {
         setIdealCalorie(0);
     }
 
