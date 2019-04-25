@@ -87,7 +87,7 @@
         <input type="text" placeholder="Please enter your email" name="email" required>
 
         <label><b>Name</b></label>
-        <input type="text" placeholder="Please enter your name" name="email" required>
+        <input type="text" placeholder="Please enter your name" name="name" required>
 
         <label><b>Weight</b></label>
         <input type="text" placeholder="Please enter your weight" name="weight" required>

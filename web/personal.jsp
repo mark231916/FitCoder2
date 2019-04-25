@@ -20,8 +20,10 @@
     float height = Float.parseFloat(request.getParameter("height"));
     user.setWeight(weight);
     user.setHeight(height);
+    user.setName(request.getParameter("name"));
+    user.setEmail(request.getParameter("email"));
     user.setGoalWeight(goalWeight);
-
+    user.setBMI();
 %>
 </body>
 </html>
