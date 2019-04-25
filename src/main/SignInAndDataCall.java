@@ -12,7 +12,11 @@ public class SignInAndDataCall {
     public static void main(String[] args) {
 
         try {
-            User test=new User("Hello", "World");
+            User test=new User();
+            test.setUsername("hello");
+            test.setPassword("world");
+            test.AddToUserList();
+            test.setWeight(190);
         } catch (IOException e) {
             e.printStackTrace();
         }

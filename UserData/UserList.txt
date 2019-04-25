@@ -1,5 +1,3 @@
-afdas	asdfasdf
-adsfgadsgadfgsdfg	fuck
-asfsadf	sdfsdf
-sdfsdg	sdfsdf
-sdfgdgf	dgsfd
+hello	world
+hello	world
+hello	world

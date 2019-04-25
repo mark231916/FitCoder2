@@ -22,7 +22,7 @@ public class User {
         GoalWeight = 0;
         height = 0;
         BMI = 0;
-
+        creationDate = new Date();
     }
     public User(String username, String password) throws IOException {
         this.username = username;
@@ -47,16 +47,8 @@ public class User {
     }
 
 
-    public void initUser()
-    {
-        try {
-            AddToUserList();
-            MakeUserFile();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-    private void AddToUserList() throws IOException {
+
+    public void AddToUserList() throws IOException {
         String filename="C:\\Users\\arshp\\IdeaProjects\\FitCoder2\\UserData\\UserList.txt";
         //System.out.println(filename);
 
@@ -69,7 +61,7 @@ public class User {
     }
 
     private void MakeUserFile() throws IOException {
-        String filename="C:\\Users\\arshp\\IdeaProjects\\FitCoder2\\UserData" + username;
+        String filename="C:\\Users\\arshp\\IdeaProjects\\FitCoder2\\UserData\\" + username;
 
         BufferedWriter writer = new BufferedWriter(new FileWriter(filename));
 
@@ -109,7 +101,6 @@ public class User {
 
     public void setPassword(String password) throws IOException {
         this.password = password;
-        MakeUserFile();
     }
 
     public void setWeight(float weight) throws IOException {
@@ -117,7 +108,7 @@ public class User {
         MakeUserFile();
     }
 
-    public void setUsername(String username) {
+    public void setUsername(String username) throws IOException {
         this.username = username;
     }
 
