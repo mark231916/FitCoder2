@@ -90,13 +90,13 @@
         <input type="text" placeholder="Please enter your name" name="name" required>
 
         <label><b>Weight</b></label>
-        <input type="text" placeholder="Please enter your weight" name="weight" required>
+        <input type="text" placeholder="Please enter your weight in kg" name="weight" required>
 
         <label><b>Height</b></label>
-        <input type="text" placeholder="Please enter your height" name="height" required>
+        <input type="text" placeholder="Please enter your height in m" name="height" required>
 
         <label><b>Goal Weight</b></label>
-        <input type="text" placeholder="Please enter your goal weight" name="goalWeight" required>
+        <input type="text" placeholder="Please enter your goal weight in kg" name="goalWeight" required>
 
         <button type="submit">Finish</button>
     </form>
