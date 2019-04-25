@@ -116,7 +116,18 @@ public class User {
         MakeUserFile();
     }
     public void setIdealCalorie() throws IOException {
-        setIdealCalorie(0);
+        float calorie=getWeight();
+        if(getGender()=="Female") calorie*=0.9;
+        else if(getGender()=="Other") calorie*=0.95;
+        calorie*=24;
+        calorie*=0.85;
+        if(getActivitymultiplier()=="Very Light") calorie*=1.3;
+        else if(getActivitymultiplier()=="Light") calorie*=1.55;
+        else if(getActivitymultiplier()=="Moderate") calorie*=1.65;
+        else if(getActivitymultiplier()=="Heavy") calorie*=1.80;
+        else if(getActivitymultiplier()=="Very Heavy") calorie*=2;
+
+        setIdealCalorie((int)calorie);
     }
 
     public void setAge(int age) throws IOException {
