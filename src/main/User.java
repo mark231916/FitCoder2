@@ -8,6 +8,7 @@ import java.util.Date;
 public class User {
     private String username, password, email, name;
     private float weight, GoalWeight, height, BMI;
+    private int IdealCalorie;
     static CreateTableInsertRows table;
 
     Date creationDate;
@@ -22,6 +23,7 @@ public class User {
         GoalWeight = 0;
         height = 0;
         BMI = 0;
+        IdealCalorie=0;
         creationDate = new Date();
 
         try {
@@ -33,8 +35,8 @@ public class User {
 
 
     public void AddToUserList() throws IOException {
-        //String filename="C:\\Users\\arshp\\IdeaProjects\\FitCoder2\\UserData\\UserList.txt";
-        String filename = "/Users/mark231916/FitCoder2/UserData/UserList.txt";
+        String filename="C:\\Users\\arshp\\IdeaProjects\\FitCoder2\\UserData\\UserList.txt";
+        //String filename = "/Users/mark231916/FitCoder2/UserData/UserList.txt";
         //System.out.println(filename);
 
         BufferedWriter writer = new BufferedWriter(new FileWriter(filename, true));
@@ -48,8 +50,8 @@ public class User {
     }
 
     private void MakeUserFile() throws IOException {
-        //String filename="C:\\Users\\arshp\\IdeaProjects\\FitCoder2\\UserData\\" + username;
-        String filename = "/Users/mark231916/FitCoder2/UserData/" + username;
+        String filename="C:\\Users\\arshp\\IdeaProjects\\FitCoder2\\UserData\\" + username;
+        //String filename = "/Users/mark231916/FitCoder2/UserData/" + username;
         BufferedWriter writer = new BufferedWriter(new FileWriter(filename));
 
         writer.write("username: ");
@@ -68,6 +70,8 @@ public class User {
         writer.append(Float.toString(getHeight()));
         writer.append("\nBMI: ");
         writer.append(Float.toString(getBMI()));
+        writer.append("\nIdeal Calorie Consumption");
+        writer.append(Integer.toString(IdealCalorie));
         writer.close();
     }
 
@@ -97,6 +101,14 @@ public class User {
 
     public void setUsername(String username) throws IOException {
         this.username = username;
+    }
+
+    public void setIdealCalorie(int idealCalorie) {
+        IdealCalorie = idealCalorie;
+    }
+    public void setIdealCalorie()
+    {
+        setIdealCalorie(0);
     }
 
     public float getBMI() {
@@ -140,4 +152,7 @@ public class User {
         return creationDate;
     }
 
+    public int getIdealCalorie() {
+        return IdealCalorie;
+    }
 }
