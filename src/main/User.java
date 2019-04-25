@@ -119,16 +119,19 @@ public class User {
         setIdealCalorie(0);
     }
 
-    public void setAge(int age) {
+    public void setAge(int age) throws IOException {
         this.age = age;
+        MakeUserFile();
     }
 
-    public void setGender(String gender) {
+    public void setGender(String gender) throws IOException {
         this.gender = gender;
+        MakeUserFile();
     }
 
-    public void setActivitymultiplier(String activitymultiplier) {
+    public void setActivitymultiplier(String activitymultiplier) throws IOException {
         this.activitymultiplier = activitymultiplier;
+        MakeUserFile();
     }
 
     public float getBMI() {
