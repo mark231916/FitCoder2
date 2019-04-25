@@ -10,9 +10,9 @@ public class CreateTableInsertRows {
     public CreateTableInsertRows ()  throws Exception
     {
         // Initialize connection variables.
-        String host = "cs252lab6.mysql.database.azure.com";
+        String host = "cs252lab.mysql.database.azure.com";
         String database = "quickstartdb";
-        String user = "singh402@cs252lab6";
+        String user = "mark231916@cs252lab";
         String password = "cs252lab6fuc#";
 
         // check that the driver is installed
@@ -38,8 +38,8 @@ public class CreateTableInsertRows {
             Properties properties = new Properties();
             properties.setProperty("user", user);
             properties.setProperty("password", password);
-            properties.setProperty("useSSL", "true");
-            properties.setProperty("verifyServerCertificate", "true");
+            properties.setProperty("useSSL", "false");
+            //properties.setProperty("verifyServerCertificate", "true");
             properties.setProperty("requireSSL", "false");
             properties.setProperty("serverTimezone", "UTC");
 
@@ -55,7 +55,7 @@ public class CreateTableInsertRows {
             System.out.println("Successfully created connection to database.");
 
             // Perform some SQL queries over the connection.
-            try
+            /*try
             {
                 // Drop previous table of same name if one exists.
                 Statement statement = connection.createStatement();
@@ -70,7 +70,7 @@ public class CreateTableInsertRows {
             catch (SQLException e)
             {
                 throw new SQLException("Encountered an error when executing given sql statement.", e);
-            }
+            }*/
         }
         else {
             System.out.println("Failed to create connection to database.");

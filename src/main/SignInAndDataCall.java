@@ -16,7 +16,7 @@ public class SignInAndDataCall {
             test.setUsername("hello");
             test.setPassword("world");
             test.AddToUserList();
-        } catch (IOException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
