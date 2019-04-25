@@ -96,11 +96,12 @@
     </div>
 </div>
 <div id="wrapper">
-    Your BMI: <%=user.getBMI()%>
     <form action="index.jsp" method="post">
+        <label>Your BMI: <%=user.getBMI()%></label>
+        <br>
         <label><b>Ideal Calorie Consumption</b></label>
         <input type="text" placeholder="Please enter your idea calorie consumption" name="calorie" required>
-        (Your ideal calorie consumption is <%=user.getIdealCalorie()%>)
+        <label><b>(Your ideal calorie consumption is <%=user.getIdealCalorie()%>)</b></label>
         <button type="submit">Finish</button>
     </form>
 </div>
