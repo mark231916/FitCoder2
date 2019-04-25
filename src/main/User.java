@@ -24,7 +24,7 @@ public class User {
         height = 0;
         BMI = 0;
         age=0;
-        gender="other";
+        gender="Other";
         IdealCalorie=0;
         creationDate = new Date();
 

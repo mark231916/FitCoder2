@@ -87,10 +87,11 @@
     user.setEmail(request.getParameter("email"));
     user.setGoalWeight(goalWeight);
     user.setBMI();
-    user.setIdealCalorie();
     System.out.println(request.getParameter("gender"));
     user.setActivitymultiplier(request.getParameter("activity"));
     user.setGender(request.getParameter("gender"));
+    System.out.println(request.getParameter("activity"));
+    user.setIdealCalorie();
 %>
 <div class="topnav">
     <a href="index.jsp">FitCoder</a>
