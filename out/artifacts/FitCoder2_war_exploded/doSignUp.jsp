@@ -20,7 +20,7 @@
     user.setUsername(username);
     user.setPassword(psw);
     user.AddToUserList();
-    request.getRequestDispatcher("login_success.jsp").forward(request, response);
+    request.getRequestDispatcher("signUp_success.jsp").forward(request, response);
 %>
 </body>
 </html>

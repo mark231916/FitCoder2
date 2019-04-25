@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   main.User: mark231916
-  Date: 2019-04-18
-  Time: 23:31
+  Date: 2019-04-22
+  Time: 23:45
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -14,7 +14,7 @@
     <style>
         body {font-family: Arial, Helvetica, sans-serif; margin: 0;}
         #wrapper {
-            width: 100%;
+            width:100%;
             height: 100%;
             display: flex;
             align-items: center;
@@ -27,7 +27,6 @@
             top: 0;
             width: 100%;
         }
-
         .topnav a {
             float: left;
             display: block;
@@ -38,10 +37,28 @@
             font-size: 30px;
             font-family: 'Aldrich';
         }
-
         .topnav a:hover {
             background-color: #ddd;
-            color: black;
+            color:black;
+        }
+        input[type=text], input[type=password] {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #4DB6AC;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            left: 50%;
+            top: 50%;
         }
         .topnav .right {
             float: right;
@@ -54,17 +71,35 @@
             font-size: 17px;
             border: none;
         }
-
     </style>
 </head>
 <body>
+<jsp:useBean id="user" class="main.User" scope="session"/>
 <div class="topnav">
     <a href="index.jsp">FitCoder</a>
     <div class="right">
-        <p>Hello <%=(session.getAttribute("loginUser"))%></p>
+        <p>Hello <%=(user.getUsername())%></p>
     </div>
 </div>
+<div id="wrapper">
+    <form action="personal.jsp" method="post">
+        <label><b>Email</b></label>
+        <input type="text" placeholder="Please enter your email" name="email" required>
 
+        <label><b>Name</b></label>
+        <input type="text" placeholder="Please enter your name" name="email" required>
 
+        <label><b>Weight</b></label>
+        <input type="text" placeholder="Please enter your weight" name="weight" required>
+
+        <label><b>Height</b></label>
+        <input type="text" placeholder="Please enter your height" name="height" required>
+
+        <label><b>Goal Weight</b></label>
+        <input type="text" placeholder="Please enter your goal weight" name="goalWeight" required>
+
+        <button type="submit">Finish</button>
+    </form>
+</div>
 </body>
 </html>

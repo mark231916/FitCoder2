@@ -60,6 +60,7 @@
       align-items: center;
       justify-content: center;
       background: url(/img/gym.jpg);
+      color: rgb(255,255,255);
     }
 
     .topnav .login-container button {
