@@ -16,7 +16,6 @@ public class SignInAndDataCall {
             test.setUsername("hello");
             test.setPassword("world");
             test.AddToUserList();
-            test.setWeight(190);
         } catch (IOException e) {
             e.printStackTrace();
         }
