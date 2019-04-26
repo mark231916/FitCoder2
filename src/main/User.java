@@ -52,7 +52,7 @@ public class User {
         table.insert(username, password);
     }
 
-    private void MakeUserFile() throws IOException {
+    public void MakeUserFile() throws IOException {
         //String filename="C:\\Users\\arshp\\IdeaProjects\\FitCoder2\\UserData\\" + username;
         //String filename = "/Users/mark231916/FitCoder2/UserData/" + username;
         String filename = "/" + username;

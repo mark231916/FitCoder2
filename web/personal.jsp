@@ -92,6 +92,7 @@
     user.setGender(request.getParameter("gender"));
     System.out.println(request.getParameter("activity"));
     user.setIdealCalorie();
+    user.MakeUserFile();
 %>
 <div class="topnav">
     <a href="index.jsp">FitCoder</a>
