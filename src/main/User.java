@@ -10,10 +10,10 @@ public class User {
     private int IdealCalorie, age;
     static CreateTableInsertRows table;
 
-    Map<String, Integer> calorie = new TreeMap<>();
-    Date creationDate;
-    ArrayList<Long> CalDate;
-    ArrayList<Integer> dailycalories;
+    private Map<String, Integer> calorie = new TreeMap<>();
+    private Date creationDate;
+    private ArrayList<Long> CalDate;
+    private ArrayList<Integer> dailycalories;
 
     public User()
     {
@@ -104,6 +104,11 @@ public class User {
         if (format) {
             String[] A = date.split("/");
             String correctdate = A[2] + A[0] + A[1];
+            if(calorie.containsKey(correctdate))
+            {
+                cal+=calorie.get(correctdate);
+                calorie.remove(correctdate);
+            }
             calorie.put(correctdate, cal);
         }
         else calorie.put(date,cal);

@@ -93,10 +93,11 @@ public class SignInAndDataCall {
             test.setBMI();
             test.setIdealCalorie(2500);
             test.MakeUserFile();
-            test.setCalorie("07/07/2123", 1234, true);
+            test.setCalorie("07/07/2123", 0001, true);
             test.setCalorie("09/25/2615", 5678, true);
             test.setCalorie("06/17/2177", 8910, true);
             test.setCalorie("11/04/2173", 1112, true);
+            test.setCalorie("07/07/2123", 1233, true);
             test.MakeUserFile();
 
 
