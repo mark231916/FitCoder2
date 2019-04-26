@@ -85,39 +85,39 @@ public class User {
         writer.close();
     }
 
-    public void setEmail(String email) throws IOException {
+    public void setEmail(String email)  {
         this.email = email;
-        MakeUserFile();
+
     }
 
-    public void setName(String name) throws IOException {
+    public void setName(String name)  {
         this.name = name;
-        MakeUserFile();
+
     }
 
-    public void setHeight(float height) throws IOException {
+    public void setHeight(float height)  {
         this.height = height;
-        MakeUserFile();
+
     }
 
-    public void setPassword(String password) throws IOException {
+    public void setPassword(String password) {
         this.password = password;
     }
 
-    public void setWeight(float weight) throws IOException {
+    public void setWeight(float weight) {
         this.weight = weight;
-        MakeUserFile();
+
     }
 
-    public void setUsername(String username) throws IOException {
+    public void setUsername(String username) {
         this.username = username;
     }
 
-    public void setIdealCalorie(int idealCalorie) throws IOException {
+    public void setIdealCalorie(int idealCalorie) {
         IdealCalorie = idealCalorie;
-        MakeUserFile();
+
     }
-    public void setIdealCalorie() throws IOException {
+    public void setIdealCalorie() {
         float calorie=getGoalWeight();
         if(getGender().equals("Female")) calorie*=0.9;
         else if(getGender().equals("Other")) calorie*=0.95;
@@ -134,17 +134,14 @@ public class User {
 
     public void setAge(int age) throws IOException {
         this.age = age;
-        MakeUserFile();
     }
 
     public void setGender(String gender) throws IOException {
         this.gender = gender;
-        MakeUserFile();
     }
 
     public void setActivitymultiplier(String activitymultiplier) throws IOException {
         this.activitymultiplier = activitymultiplier;
-        MakeUserFile();
     }
 
     public float getBMI() {
@@ -171,14 +168,12 @@ public class User {
         return username;
     }
 
-    public void setBMI() throws IOException {
+    public void setBMI()  {
         BMI=weight/(height*height);
-        MakeUserFile();
     }
 
     public void setGoalWeight(float goalWeight) throws IOException {
         GoalWeight = goalWeight;
-        MakeUserFile();
     }
 
     public float getGoalWeight() {
