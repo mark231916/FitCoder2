@@ -216,7 +216,7 @@
 </div>
 
 <div id="wrapper">
-  <p>Project Description: </p>
+  <p> </p>
 </div>
 
 <div id="id01" class="modal">
