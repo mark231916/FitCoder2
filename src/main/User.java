@@ -10,10 +10,10 @@ public class User {
     private int IdealCalorie, age;
     static CreateTableInsertRows table;
 
-    Map<String, Integer> calorie = new TreeMap<>();
-    Date creationDate;
-    ArrayList<Long> CalDate;
-    ArrayList<Integer> dailycalories;
+    private Map<String, Integer> calorie = new TreeMap<>();
+    private Date creationDate;
+    private ArrayList<Long> CalDate;
+    private ArrayList<Integer> dailycalories;
 
     public User()
     {
@@ -41,8 +41,8 @@ public class User {
 
 
     public void AddToUserList() throws IOException {
-        //String filename="C:\\Users\\arshp\\IdeaProjects\\FitCoder2\\UserData\\UserList.txt";
-        String filename = "/Users/mark231916/FitCoder2/UserData/UserList.txt";
+        String filename="C:\\Users\\arshp\\IdeaProjects\\FitCoder2\\UserData\\UserList.txt";
+        //String filename = "/Users/mark231916/FitCoder2/UserData/UserList.txt";
         //String filename = "/UserList.txt";
         //System.out.println(filename);
 
@@ -56,9 +56,25 @@ public class User {
         table.insert(username, password);
     }
 
+    private String passwordhash(String pwd)
+    {
+        /*
+        Use Horner's rule to compute the hashval and return it.
+        */
+
+        int hashcode=0;
+        for(int i=0; i<pwd.length(); i++)
+        {
+            hashcode=(37*hashcode+pwd.charAt(i))%pwd.length();
+            //System.out.println("hash");
+        }
+        //System.out.println("out");
+        return Float.toString(hashcode%pwd.length());
+
+    }
     public void MakeUserFile() throws IOException {
-        //String filename="C:\\Users\\arshp\\IdeaProjects\\FitCoder2\\UserData\\" + username;
-        String filename = "/Users/mark231916/FitCoder2/UserData/" + username;
+        String filename="C:\\Users\\arshp\\IdeaProjects\\FitCoder2\\UserData\\" + username;
+        //String filename = "/Users/mark231916/FitCoder2/UserData/" + username;
         //String filename = "/" + username;
         BufferedWriter writer = new BufferedWriter(new FileWriter(filename));
 
@@ -104,6 +120,11 @@ public class User {
         if (format) {
             String[] A = date.split("/");
             String correctdate = A[2] + A[0] + A[1];
+            if(calorie.containsKey(correctdate))
+            {
+                cal+=calorie.get(correctdate);
+                calorie.remove(correctdate);
+            }
             calorie.put(correctdate, cal);
         }
         else calorie.put(date,cal);
@@ -144,6 +165,7 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+        //passwordhash(password);
     }
 
     public void setWeight(float weight) {
@@ -154,8 +176,8 @@ public class User {
     public boolean setUsername(String username) throws IOException {
         boolean existn =true;
 
-        //String filename="C:\\Users\\arshp\\IdeaProjects\\FitCoder2\\UserData\\UserList.txt";
-        String filename = "/Users/mark231916/FitCoder2/UserData/UserList.txt";
+        String filename="C:\\Users\\arshp\\IdeaProjects\\FitCoder2\\UserData\\UserList.txt";
+        //String filename = "/Users/mark231916/FitCoder2/UserData/UserList.txt";
         //String filename = "/UserList.txt";
 
         BufferedReader bufferedReader = new BufferedReader(new FileReader(filename));
@@ -270,5 +292,30 @@ public class User {
 
     public ArrayList<Long> getCalDate() {
         return CalDate;
+    }
+
+    public String getGraph()
+    {
+        String data= "";
+        for (int i =0 ; i<CalDate.size(); i++)
+        {
+            data= data +  Long.toString(CalDate.get(i)) + "," + Integer.toString(dailycalories.get(i)) + " ";
+        }
+        return data;
+
+    }
+
+    public List<Map<Object,Object>> getGraph2()
+    {
+        Map<Object, Object> map= null;
+        List<Map<Object,Object>> list=new ArrayList<Map<Object, Object>>();
+        for(int i=0; i<CalDate.size(); i++)
+        {
+            map = new HashMap<Object, Object>();
+            map.put("label", Long.toString(CalDate.get(i)));
+            map.put("y", dailycalories.get(i));
+            list.add(map);
+        }
+        return list;
     }
 }

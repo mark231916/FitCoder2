@@ -15,8 +15,8 @@ public class SignInAndDataCall {
     public User SignIn(String username, String password) throws IOException, ParseException {
         boolean coorect =false;
 
-        //String filename="C:\\Users\\arshp\\IdeaProjects\\FitCoder2\\UserData\\UserList.txt";
-        String filename = "/Users/mark231916/FitCoder2/UserData/UserList.txt";
+        String filename="C:\\Users\\arshp\\IdeaProjects\\FitCoder2\\UserData\\UserList.txt";
+        //String filename = "/Users/mark231916/FitCoder2/UserData/UserList.txt";
         //String filename = "/UserList.txt";
 
         BufferedReader bufferedReader = new BufferedReader(new FileReader(filename));
@@ -41,8 +41,8 @@ public class SignInAndDataCall {
     }
 
     public void setSigninParameters(String username) throws IOException, ParseException {
-        //String filename="C:\\Users\\arshp\\IdeaProjects\\FitCoder2\\UserData\\" + username;
-        String filename = "/Users/mark231916/FitCoder2/UserData/" + username;
+        String filename="C:\\Users\\arshp\\IdeaProjects\\FitCoder2\\UserData\\" + username;
+        //String filename = "/Users/mark231916/FitCoder2/UserData/" + username;
         //String filename = "/" + username;
 
         BufferedReader bufferedReader = new BufferedReader(new FileReader(filename));
@@ -79,8 +79,7 @@ public class SignInAndDataCall {
 
         try {
             User test=new User();
-            if(!test.setUsername("hello123"))
-                exit(0);
+            test.setUsername("hello");
             test.setPassword("world");
             test.AddToUserList();
             test.setEmail("hello@hello");
@@ -94,11 +93,13 @@ public class SignInAndDataCall {
             test.setBMI();
             test.setIdealCalorie(2500);
             test.MakeUserFile();
-            test.setCalorie("07/07/2123", 1234, true);
+            test.setCalorie("07/07/2123", 0001, true);
             test.setCalorie("09/25/2615", 5678, true);
             test.setCalorie("06/17/2177", 8910, true);
             test.setCalorie("11/04/2173", 1112, true);
+            test.setCalorie("07/07/2123", 1233, true);
             test.MakeUserFile();
+            test=null;
 
 
             SignInAndDataCall test2=new SignInAndDataCall();
@@ -107,7 +108,7 @@ public class SignInAndDataCall {
             {
                 System.out.println("Wrong Password");
             }
-            else System.out.println(test.getAge());
+            else System.out.println(test.getGraph());
         } catch (Exception e) {
             e.printStackTrace();
         }
