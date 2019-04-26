@@ -1,6 +1,8 @@
 package main;
 
 import java.io.*;
+import java.security.NoSuchAlgorithmException;
+import java.security.spec.InvalidKeySpecException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
@@ -12,18 +14,18 @@ public class SignInAndDataCall {
         signin= new User();
     }
 
-    public User SignIn(String username, String password) throws IOException, ParseException {
+    public User SignIn(String username, String password) throws IOException, ParseException, InvalidKeySpecException, NoSuchAlgorithmException {
         boolean coorect =false;
 
-        //String filename="C:\\Users\\arshp\\IdeaProjects\\FitCoder2\\UserData\\UserList.txt";
+        String filename="C:\\Users\\arshp\\IdeaProjects\\FitCoder2\\UserData\\UserList.txt";
         //String filename = "/Users/mark231916/FitCoder2/UserData/UserList.txt";
-        String filename = "/UserList.txt";
+        //String filename = "/UserList.txt";
 
         BufferedReader bufferedReader = new BufferedReader(new FileReader(filename));
             String line = bufferedReader.readLine();
             while(line != null) {
                 String [] arr=line.split(" ");
-                if(username.equals(arr[0]) && password.equals((arr[1])))
+                if(username.equals(arr[0]) && arr[1].equals((password)))
                 {
                     coorect=true; break;
                 }
@@ -34,6 +36,7 @@ public class SignInAndDataCall {
             {
                 signin.setUsername(username);
                 signin.setPassword(password);
+
                 setSigninParameters(username);
                 return signin;
             }
@@ -41,9 +44,9 @@ public class SignInAndDataCall {
     }
 
     public void setSigninParameters(String username) throws IOException, ParseException {
-        //String filename="C:\\Users\\arshp\\IdeaProjects\\FitCoder2\\UserData\\" + username;
+        String filename="C:\\Users\\arshp\\IdeaProjects\\FitCoder2\\UserData\\" + username;
         //String filename = "/Users/mark231916/FitCoder2/UserData/" + username;
-        String filename = "/" + username;
+        //String filename = "/" + username;
 
         BufferedReader bufferedReader = new BufferedReader(new FileReader(filename));
 
@@ -99,16 +102,15 @@ public class SignInAndDataCall {
             test.setCalorie("11/04/2173", 1112, true);
             test.setCalorie("07/07/2123", 1233, true);
             test.MakeUserFile();
-            test=null;
 
-
+            User Test23=new User();
             SignInAndDataCall test2=new SignInAndDataCall();
-            test=test2.SignIn("hello", "world");
+            Test23=test2.SignIn("hello", "world");
             if (test==null)
             {
                 System.out.println("Wrong Password");
             }
-            else System.out.println(test.getGraph());
+            else System.out.println(Test23.getGraph());
         } catch (Exception e) {
             e.printStackTrace();
         }
