@@ -15,7 +15,7 @@
     body {font-family: Arial, Helvetica, sans-serif; margin: 0;}
     .topnav {
       overflow: hidden;
-      background-color: #e9e9e9;
+      background-color: #e9e1e2;
       position: fixed;
       top: 0;
       width: 100%;

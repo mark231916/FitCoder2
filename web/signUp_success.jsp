@@ -73,6 +73,15 @@
             font-size: 17px;
             border: none;
         }
+        select {
+            width: 100%;
+            height: 24px;
+            color: black;
+            padding: 16px 20px;
+            border: none;
+            border-radius: 4px;
+            background-color: #f1f1f1;
+        }
     </style>
 </head>
 <body>

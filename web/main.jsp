@@ -2,7 +2,7 @@
   Created by IntelliJ IDEA.
   User: mark231916
   Date: 2019-04-25
-  Time: 02:33
+  Time: 22:14
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -14,7 +14,9 @@
     <style>
         body {font-family: Arial, Helvetica, sans-serif; margin: 0;}
         #wrapper {
-            width:100%;
+            padding-left: 10%;
+            padding-right: 10%;
+            width:80%;
             height: 100%;
             display: flex;
             align-items: center;
@@ -71,44 +73,39 @@
             font-size: 17px;
             border: none;
         }
+        button {
+            background-color: #4DB6AC;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            left: 50%;
+            top: 50%;
+        }
+
+        button:hover {
+            opacity: 0.8;
+        }
     </style>
 </head>
 <body>
+<jsp:useBean id="currUser" class="main.User" scope="session">
+
+</jsp:useBean>
 <jsp:useBean id="user" class="main.User" scope="session">
 
 </jsp:useBean>
-<%
-    float goalWeight = Float.parseFloat(request.getParameter("goalWeight"));
-    float weight = Float.parseFloat(request.getParameter("weight"));
-    float height = Float.parseFloat(request.getParameter("height"));
-    user.setWeight(weight);
-    user.setHeight(height);
-    user.setName(request.getParameter("name"));
-    user.setEmail(request.getParameter("email"));
-    user.setGoalWeight(goalWeight);
-    user.setBMI();
-    System.out.println(request.getParameter("gender"));
-    user.setActivitymultiplier(request.getParameter("activity"));
-    user.setGender(request.getParameter("gender"));
-    System.out.println(request.getParameter("activity"));
-    user.setIdealCalorie();
-    user.MakeUserFile();
-%>
 <div class="topnav">
     <a href="index.jsp">FitCoder</a>
     <div class="right">
-        <p>Hello <%=(user.getUsername())%></p>
+        <p>Hello <%=(((User)(session.getAttribute("curr"))).getUsername())%></p>
     </div>
 </div>
+
 <div id="wrapper">
-    <form action="finish_signUp.jsp" method="post">
-        <label>Your BMI: <%=user.getBMI()%></label>
-        <br>
-        <label><b>Ideal Calorie Consumption</b></label>
-        <input type="text" placeholder="Please enter your idea calorie consumption" name="calorie" required>
-        <label><i>(Your recommended Ideal Calorie Consumption is <%=user.getIdealCalorie()%> cal)</i></label>
-        <button type="submit">Finish</button>
-    </form>
+    <button onclick="window.location.href = 'addCalorie.jsp';">Add your daily calorie intake</button>
 </div>
 </body>
 </html>
