@@ -6,16 +6,16 @@ import java.text.SimpleDateFormat;
 
 public class SignInAndDataCall {
     User signin;
-    SignInAndDataCall(){
+    public SignInAndDataCall(){
         signin= new User();
     }
 
     public User SignIn(String username, String password) throws IOException, ParseException {
         boolean coorect =false;
 
-        String filename="C:\\Users\\arshp\\IdeaProjects\\FitCoder2\\UserData\\UserList.txt";
+        //String filename="C:\\Users\\arshp\\IdeaProjects\\FitCoder2\\UserData\\UserList.txt";
         //String filename = "/Users/mark231916/FitCoder2/UserData/UserList.txt";
-        //String filename = "/UserList.txt";
+        String filename = "/UserList.txt";
 
         BufferedReader bufferedReader = new BufferedReader(new FileReader(filename));
             String line = bufferedReader.readLine();
@@ -39,9 +39,9 @@ public class SignInAndDataCall {
     }
 
     public void setSigninParameters(String username) throws IOException, ParseException {
-        String filename="C:\\Users\\arshp\\IdeaProjects\\FitCoder2\\UserData\\" + username;
+        //String filename="C:\\Users\\arshp\\IdeaProjects\\FitCoder2\\UserData\\" + username;
         //String filename = "/Users/mark231916/FitCoder2/UserData/" + username;
-        //String filename = "/" + username;
+        String filename = "/" + username;
 
         BufferedReader bufferedReader = new BufferedReader(new FileReader(filename));
 
@@ -91,7 +91,7 @@ public class SignInAndDataCall {
             test.MakeUserFile();
 
             SignInAndDataCall test2=new SignInAndDataCall();
-            test=test2.SignIn("hello", "world");
+            test=test2.SignIn("hell", "orld");
             if (test==null)
             {
                 System.out.println("Wrong Password");

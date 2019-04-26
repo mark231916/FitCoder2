@@ -1,4 +1,6 @@
-<%@ page import="main.User" %><%--
+<%@ page import="main.User" %>
+<%@ page import="main.SignInAndDataCall" %>
+<%@ page import="java.text.ParseException" %><%--
   Created by IntelliJ IDEA.
   main.User: mark231916
   Date: 2019-04-18
@@ -11,10 +13,20 @@
 <%
     String username = request.getParameter("username");
     String psw = request.getParameter("psw");
-    user.setUsername(username);
-    user.setPassword(psw);
+    SignInAndDataCall sign = new SignInAndDataCall();
+    User test = null;
+    try {
+        test = sign.SignIn(username, psw);
+    } catch (ParseException e) {
+        e.printStackTrace();
+    }
+    if (test != null) {
+        session.setAttribute("curr", test);
+        request.getRequestDispatcher("main.jsp").forward(request, response);
+    }
+    else {
+        request.getRequestDispatcher("index.jsp").forward(request, response);
+    }
 
-    session.setAttribute("loginUser", username);
-    request.getRequestDispatcher("login_success.jsp").forward(request, response);
 %>
 

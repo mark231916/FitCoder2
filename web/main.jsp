@@ -1,4 +1,4 @@
-<%--
+<%@ page import="main.User" %><%--
   Created by IntelliJ IDEA.
   User: mark231916
   Date: 2019-04-25
@@ -100,12 +100,10 @@
 <div class="topnav">
     <a href="index.jsp">FitCoder</a>
     <div class="right">
-        <p>Hello <%=(user.getUsername())%></p>
+        <p>Hello <%=(((User)(session.getAttribute("curr"))).getUsername())%></p>
     </div>
 </div>
-<%
-    session.setAttribute("curr", user);
-%>
+
 <div id="wrapper">
     <button onclick="window.location.href = 'addCalorie.jsp';">Add your daily calorie intake</button>
 </div>

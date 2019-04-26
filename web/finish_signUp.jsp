@@ -18,6 +18,7 @@
 </jsp:useBean>
 <%
     user.setIdealCalorie(Integer.parseInt(request.getParameter("calorie")));
+    session.setAttribute("curr", user);
     request.getRequestDispatcher("main.jsp").forward(request, response);
 %>
 
