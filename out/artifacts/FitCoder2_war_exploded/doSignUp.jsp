@@ -22,7 +22,7 @@
         user.AddToUserList();
         request.getRequestDispatcher("signUp_success.jsp").forward(request, response);
     } else {
-        request.getRequestDispatcher("signUp.jsp").forward(request, response);
+        request.getRequestDispatcher("userNameExists.jsp").forward(request, response);
     }
 
 %>

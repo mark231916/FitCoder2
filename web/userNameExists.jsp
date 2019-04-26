@@ -1,8 +1,8 @@
-<%@ page import="main.User" %><%--
+<%--
   Created by IntelliJ IDEA.
   User: mark231916
-  Date: 2019-04-25
-  Time: 23:25
+  Date: 2019-04-26
+  Time: 04:26
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -14,13 +14,13 @@
     <style>
         body {font-family: Arial, Helvetica, sans-serif; margin: 0;}
         #wrapper {
-            padding-left: 10%;
-            padding-right: 10%;
-            width:80%;
+            width:100%;
             height: 100%;
             display: flex;
             align-items: center;
             justify-content: center;
+            background: url(/img/gym.jpg);
+            color: rgb(0,0,0);
         }
         .topnav {
             overflow: hidden;
@@ -58,60 +58,24 @@
             margin: 8px 0;
             border: none;
             cursor: pointer;
-            width: 100%;
+            width: 50%;
             left: 50%;
             top: 50%;
-        }
-        .topnav .right {
-            float: right;
-            padding: 5px 10px;
-            margin-top: 0px;
-            margin-right: 0px;
-            margin-bottom: 0px;
-            background-color: #4DB6AC;
-            color: white;
-            font-size: 17px;
-            border: none;
-        }
-        button {
-            background-color: #4DB6AC;
-            color: white;
-            padding: 14px 20px;
-            margin: 8px 0;
-            border: none;
-            cursor: pointer;
-            width: 100%;
-            left: 50%;
-            top: 50%;
-        }
-
-        button:hover {
-            opacity: 0.8;
         }
     </style>
 </head>
 <body>
-<jsp:useBean id="user" class="main.User" scope="session">
-
-</jsp:useBean>
-
 <div class="topnav">
     <a href="index.jsp">FitCoder</a>
-    <div class="right">
-        <p>Hello <%=(((User)session.getAttribute("curr")).getUsername())%></p>
-    </div>
 </div>
-
-<%
-    ((User)session.getAttribute("curr")).setCalorie(request.getParameter("date"), Integer.parseInt(request.getParameter("intake")), true);
-    ((User)session.getAttribute("curr")).MakeUserFile();
-    request.getRequestDispatcher("main.jsp").forward(request, response);
-%>
 
 <div id="wrapper">
-    Date: <%=request.getParameter("date")%>
-    Calorie: <%=request.getParameter("intake")%>
+    <p>
+        <b>UserName already exists. Please try another one.</b>
+    </p>
+    <button onclick="window.location.href = 'signUp.jsp';">Try another username</button>
 </div>
+
 
 </body>
 </html>
