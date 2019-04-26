@@ -1,15 +1,18 @@
 package main;
 
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.util.Date;
+import java.io.*;
+import java.util.*;
+
+import static java.util.Map.Entry.comparingByKey;
+import static java.util.stream.Collectors.toMap;
 
 public class User {
     private String username, password, email, name, gender, activitymultiplier;
     private float weight, GoalWeight, height, BMI;
     private int IdealCalorie, age;
     static CreateTableInsertRows table;
+
+    Map<String, Integer> calorie = new TreeMap<>();
 
     Date creationDate;
 
@@ -82,7 +85,28 @@ public class User {
         writer.append(Float.toString(getBMI()));
         writer.append("\nIdeal Calorie Consumption-");
         writer.append(Integer.toString(getIdealCalorie()));
+
+        Set set = calorie.entrySet();
+        Iterator iterator=set.iterator();
+        while(iterator.hasNext())
+        {
+            Map.Entry entry = (Map.Entry) iterator.next();
+            writer.append("\n");
+            writer.append((String) entry.getKey());
+            writer.append("-");
+            writer.append(Integer.toString((int)entry.getValue()));
+        }
         writer.close();
+    }
+
+    public void setCalorie(String date, int cal, boolean format) throws IOException {
+        if (format) {
+            String[] A = date.split("/");
+            String correctdate = A[2] + A[1] + A[0];
+            calorie.put(correctdate, cal);
+        }
+        else calorie.put(date,cal);
+        //MakeUserFile();
     }
 
     public void setEmail(String email)  {
@@ -109,8 +133,27 @@ public class User {
 
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public boolean setUsername(String username) throws IOException {
+        boolean existn =true;
+
+        String filename="C:\\Users\\arshp\\IdeaProjects\\FitCoder2\\UserData\\UserList.txt";
+        //String filename = "/Users/mark231916/FitCoder2/UserData/UserList.txt";
+        //String filename = "/UserList.txt";
+
+        BufferedReader bufferedReader = new BufferedReader(new FileReader(filename));
+        String line = bufferedReader.readLine();
+        while(line != null) {
+            String [] arr=line.split(" ");
+            if(username.equals(arr[0]))
+            {
+                existn=false; break;
+            }
+            line = bufferedReader.readLine();
+        }
+
+        if (existn) this.username = username;
+
+        return existn;
     }
 
     public void setIdealCalorie(int idealCalorie) {

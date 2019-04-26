@@ -65,6 +65,8 @@ public class SignInAndDataCall {
                 case 11: signin.setBMI(); break;
                 case 12: signin.setIdealCalorie(Integer.parseInt(arr[1]));
             }
+
+            if(linenumber>12) signin.setCalorie(arr[0], Integer.parseInt(arr[1]), false);
             line = bufferedReader.readLine();
             linenumber++;
         }
@@ -89,6 +91,12 @@ public class SignInAndDataCall {
             test.setBMI();
             test.setIdealCalorie(2500);
             test.MakeUserFile();
+            test.setCalorie("07/07/2123", 1234, true);
+            test.setCalorie("09/25/2615", 5678, true);
+            test.setCalorie("06/17/2177", 8910, true);
+            test.setCalorie("11/04/2173", 1112, true);
+            test.MakeUserFile();
+
 
             SignInAndDataCall test2=new SignInAndDataCall();
             test=test2.SignIn("hello", "world");
@@ -96,6 +104,7 @@ public class SignInAndDataCall {
             {
                 System.out.println("Wrong Password");
             }
+            else System.out.println(test.getAge());
         } catch (Exception e) {
             e.printStackTrace();
         }
