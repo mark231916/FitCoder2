@@ -37,14 +37,14 @@ public class User {
 
 
     public void AddToUserList() throws IOException {
-        //String filename="C:\\Users\\arshp\\IdeaProjects\\FitCoder2\\UserData\\UserList.txt";
+        String filename="C:\\Users\\arshp\\IdeaProjects\\FitCoder2\\UserData\\UserList.txt";
         //String filename = "/Users/mark231916/FitCoder2/UserData/UserList.txt";
-        String filename = "/UserList.txt";
+        //String filename = "/UserList.txt";
         //System.out.println(filename);
 
         BufferedWriter writer = new BufferedWriter(new FileWriter(filename, true));
         writer.write(username);
-        writer.write("\t");
+        writer.write(" ");
         writer.write(password);
         writer.write("\n");
         writer.close();
@@ -53,34 +53,34 @@ public class User {
     }
 
     public void MakeUserFile() throws IOException {
-        //String filename="C:\\Users\\arshp\\IdeaProjects\\FitCoder2\\UserData\\" + username;
+        String filename="C:\\Users\\arshp\\IdeaProjects\\FitCoder2\\UserData\\" + username;
         //String filename = "/Users/mark231916/FitCoder2/UserData/" + username;
-        String filename = "/" + username;
+        //String filename = "/" + username;
         BufferedWriter writer = new BufferedWriter(new FileWriter(filename));
 
-        writer.write("username: ");
+        writer.write("username-");
         writer.append(getUsername());
-        writer.append("\nEmail: ");
+        writer.append("\nEmail-");
         writer.append(getEmail());
-        writer.append("\nName: ");
+        writer.append("\nName-");
         writer.append(getName());
-        writer.append("\nGender: ");
+        writer.append("\nGender-");
         writer.append(getGender());
-        writer.append("\nAge: ");
+        writer.append("\nAge-");
         writer.append(Integer.toString(getAge()));
-        writer.append("\nDaily Activity: ");
+        writer.append("\nDaily Activity-");
         writer.append(getActivitymultiplier());
-        writer.append("\nDate Created: ");
+        writer.append("\nDate Created-");
         writer.append(getCreationDate().toString());
-        writer.append("\n\nWeight: ");
+        writer.append("\nWeight-");
         writer.append(Float.toString(getWeight()));
-        writer.append("\nGoal Weight: ");
+        writer.append("\nGoal Weight-");
         writer.append(Float.toString(getGoalWeight()));
-        writer.append("\nHeight: ");
+        writer.append("\nHeight-");
         writer.append(Float.toString(getHeight()));
-        writer.append("\nBMI: ");
+        writer.append("\nBMI-");
         writer.append(Float.toString(getBMI()));
-        writer.append("\nIdeal Calorie Consumption: ");
+        writer.append("\nIdeal Calorie Consumption-");
         writer.append(Integer.toString(getIdealCalorie()));
         writer.close();
     }
@@ -134,6 +134,10 @@ public class User {
 
     public void setAge(int age) throws IOException {
         this.age = age;
+    }
+
+    public void setCreationDate(Date creationDate) {
+        this.creationDate = creationDate;
     }
 
     public void setGender(String gender) throws IOException {
