@@ -25,7 +25,7 @@
         request.getRequestDispatcher("main.jsp").forward(request, response);
     }
     else {
-        request.getRequestDispatcher("index.jsp").forward(request, response);
+        request.getRequestDispatcher("wrongpsw.jsp").forward(request, response);
     }
 
 %>

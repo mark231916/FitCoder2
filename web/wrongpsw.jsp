@@ -70,7 +70,7 @@
 </div>
 
 <div id="wrapper">
-    <button onclick="window.location.href = 'signUp.jsp';">Username already exists. Please try another one.</button>
+    <button onclick="window.location.href = 'index.jsp';">Wrong password. Please try again.</button>
 </div>
 
 
