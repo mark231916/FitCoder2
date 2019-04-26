@@ -179,7 +179,7 @@
     </div>
 </div>
 
-<div class="content" id="chartContainer" style="padding-top:5%; height: 50%; width: 50%; padding-left: 5%; padding-right: 5%;"></div>
+<div class="content" id="chartContainer" style="padding-top:5%; height: 50%; width: 50%; padding-left: 5%; padding-right: 5%;align-items: center"></div>
 <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 
 <div id="wrapper">
@@ -221,8 +221,7 @@
         <input type="text" placeholder="Calorie intake" name="intake" required>
         <button type="submit">Add your daily calorie intake</button>
     </form>
-
 </div>
-
+<button onclick="window.location.href='index.jsp';">Sign out</button>
 </body>
 </html>
