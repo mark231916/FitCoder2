@@ -171,7 +171,7 @@
     </table>
     <form action="addCalorie.jsp" method="post">
         <label><b>Please choose date:</b></label>
-        <input type="text" id="datepicker">
+        <input type="text" id="datepicker" name="date">
         <label><b>Please enter your calorie intake: </b></label>
         <input type="text" placeholder="Calorie intake" name="intake" required>
         <button type="submit">Add your daily calorie intake</button>

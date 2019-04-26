@@ -102,5 +102,15 @@
     </div>
 </div>
 
+<%
+    ((User)session.getAttribute("curr")).setCalorie(request.getParameter("date"), Integer.parseInt(request.getParameter("intake")), true);
+    ((User)session.getAttribute("curr")).MakeUserFile();
+%>
+
+<div id="wrapper">
+    Date: <%=request.getParameter("date")%>
+    Calorie: <%=request.getParameter("intake")%>
+</div>
+
 </body>
 </html>

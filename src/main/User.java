@@ -102,7 +102,7 @@ public class User {
     public void setCalorie(String date, int cal, boolean format) throws IOException {
         if (format) {
             String[] A = date.split("/");
-            String correctdate = A[2] + A[1] + A[0];
+            String correctdate = A[2] + A[0] + A[1];
             calorie.put(correctdate, cal);
         }
         else calorie.put(date,cal);
