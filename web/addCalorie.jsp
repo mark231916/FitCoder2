@@ -91,7 +91,9 @@
     </style>
 </head>
 <body>
-<jsp:useBean id="user" class="main.User" scope="session"></jsp:useBean>
+<jsp:useBean id="user" class="main.User" scope="session">
+
+</jsp:useBean>
 
 <div class="topnav">
     <a href="index.jsp">FitCoder</a>

@@ -14,8 +14,8 @@ public class SignInAndDataCall {
         boolean coorect =false;
 
         //String filename="C:\\Users\\arshp\\IdeaProjects\\FitCoder2\\UserData\\UserList.txt";
-        //String filename = "/Users/mark231916/FitCoder2/UserData/UserList.txt";
-        String filename = "/UserList.txt";
+        String filename = "/Users/mark231916/FitCoder2/UserData/UserList.txt";
+        //String filename = "/UserList.txt";
 
         BufferedReader bufferedReader = new BufferedReader(new FileReader(filename));
             String line = bufferedReader.readLine();
@@ -40,8 +40,8 @@ public class SignInAndDataCall {
 
     public void setSigninParameters(String username) throws IOException, ParseException {
         //String filename="C:\\Users\\arshp\\IdeaProjects\\FitCoder2\\UserData\\" + username;
-        //String filename = "/Users/mark231916/FitCoder2/UserData/" + username;
-        String filename = "/" + username;
+        String filename = "/Users/mark231916/FitCoder2/UserData/" + username;
+        //String filename = "/" + username;
 
         BufferedReader bufferedReader = new BufferedReader(new FileReader(filename));
 

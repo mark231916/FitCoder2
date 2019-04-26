@@ -81,12 +81,14 @@
     float goalWeight = Float.parseFloat(request.getParameter("goalWeight"));
     float weight = Float.parseFloat(request.getParameter("weight"));
     float height = Float.parseFloat(request.getParameter("height"));
+    int age = Integer.parseInt(request.getParameter("age"));
     user.setWeight(weight);
     user.setHeight(height);
     user.setName(request.getParameter("name"));
     user.setEmail(request.getParameter("email"));
     user.setGoalWeight(goalWeight);
     user.setBMI();
+    user.setAge(age);
     System.out.println(request.getParameter("gender"));
     user.setActivitymultiplier(request.getParameter("activity"));
     user.setGender(request.getParameter("gender"));

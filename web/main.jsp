@@ -11,12 +11,22 @@
     <title>FitCoder</title>
     <link href='https://fonts.googleapis.com/css?family=Aldrich' rel='stylesheet'>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+        $( function() {
+            $( "#datepicker" ).datepicker();
+        } );
+    </script>
     <style>
         body {font-family: Arial, Helvetica, sans-serif; margin: 0;}
         #wrapper {
-            padding-left: 10%;
-            padding-right: 10%;
-            width:80%;
+            padding-left: 5%;
+            padding-right: 5%;
+            padding-top: 5%;
+            width:90%;
             height: 100%;
             display: flex;
             align-items: center;
@@ -51,17 +61,6 @@
             border: 1px solid #ccc;
             box-sizing: border-box;
         }
-        button {
-            background-color: #4DB6AC;
-            color: white;
-            padding: 14px 20px;
-            margin: 8px 0;
-            border: none;
-            cursor: pointer;
-            width: 100%;
-            left: 50%;
-            top: 50%;
-        }
         .topnav .right {
             float: right;
             padding: 5px 10px;
@@ -84,9 +83,38 @@
             left: 50%;
             top: 50%;
         }
+        form {
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            width: 50%;
+            left: 50%;
+            top: 50%;
+        }
 
         button:hover {
             opacity: 0.8;
+        }
+        table {
+            border-collapse: collapse;
+            padding-right: 20px;
+            margin-right: 10px;
+            width: 100%;
+        }
+
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        tr:hover {background-color:#f5f5f5;}
+        .content {
+            padding-left: 5%;
+            padding-right: 5%;
+            width: 80%;
+            padding-top: 5%;
+            align-items: center;
         }
     </style>
 </head>
@@ -104,8 +132,51 @@
     </div>
 </div>
 
+<div class="content">
+    Graph goes here
+    <br>
+</div>
+
 <div id="wrapper">
-    <button onclick="window.location.href = 'addCalorie.jsp';">Add your daily calorie intake</button>
+
+    <table>
+        <tr>
+            <th>Your Information</th>
+            <th> </th>
+        </tr>
+        <tr>
+            <th>Name</th>
+            <td><%=(((User)(session.getAttribute("curr"))).getName())%></td>
+        </tr>
+        <tr>
+            <th>Age</th>
+            <td><%=(((User)(session.getAttribute("curr"))).getAge())%></td>
+        </tr>
+        <tr>
+            <th>Height</th>
+            <td><%=(((User)(session.getAttribute("curr"))).getHeight())%>m</td>
+        </tr>
+        <tr>
+            <th>Weight</th>
+            <td><%=(((User)(session.getAttribute("curr"))).getWeight())%>kg</td>
+        </tr>
+        <tr>
+            <th>Goal Weight</th>
+            <td><%=(((User)(session.getAttribute("curr"))).getGoalWeight())%>kg</td>
+        </tr>
+        <tr>
+            <th>Ideal Calorie Intake</th>
+            <td><%=(((User)(session.getAttribute("curr"))).getIdealCalorie())%>Cal</td>
+        </tr>
+    </table>
+    <form action="addCalorie.jsp" method="post">
+        <label><b>Please choose date:</b></label>
+        <input type="text" id="datepicker">
+        <label><b>Please enter your calorie intake: </b></label>
+        <input type="text" placeholder="Calorie intake" name="intake" required>
+        <button type="submit">Add your daily calorie intake</button>
+    </form>
+
 </div>
 </body>
 </html>

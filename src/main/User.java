@@ -38,8 +38,8 @@ public class User {
 
     public void AddToUserList() throws IOException {
         //String filename="C:\\Users\\arshp\\IdeaProjects\\FitCoder2\\UserData\\UserList.txt";
-        //String filename = "/Users/mark231916/FitCoder2/UserData/UserList.txt";
-        String filename = "/UserList.txt";
+        String filename = "/Users/mark231916/FitCoder2/UserData/UserList.txt";
+        //String filename = "/UserList.txt";
         //System.out.println(filename);
 
         BufferedWriter writer = new BufferedWriter(new FileWriter(filename, true));
@@ -54,8 +54,8 @@ public class User {
 
     public void MakeUserFile() throws IOException {
         //String filename="C:\\Users\\arshp\\IdeaProjects\\FitCoder2\\UserData\\" + username;
-        //String filename = "/Users/mark231916/FitCoder2/UserData/" + username;
-        String filename = "/" + username;
+        String filename = "/Users/mark231916/FitCoder2/UserData/" + username;
+        //String filename = "/" + username;
         BufferedWriter writer = new BufferedWriter(new FileWriter(filename));
 
         writer.write("username-");
