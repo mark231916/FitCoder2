@@ -3,8 +3,6 @@ package main;
 import java.io.*;
 import java.util.*;
 
-import static java.util.Map.Entry.comparingByKey;
-import static java.util.stream.Collectors.toMap;
 
 public class User {
     private String username, password, email, name, gender, activitymultiplier;
@@ -13,8 +11,9 @@ public class User {
     static CreateTableInsertRows table;
 
     Map<String, Integer> calorie = new TreeMap<>();
-
     Date creationDate;
+    ArrayList<Long> CalDate;
+    ArrayList<Integer> dailycalories;
 
     public User()
     {
@@ -30,6 +29,8 @@ public class User {
         gender="Other";
         IdealCalorie=0;
         creationDate = new Date();
+        dailycalories= new ArrayList<>();
+        CalDate=new ArrayList<>();
 
         try {
             table=new CreateTableInsertRows();
@@ -40,8 +41,8 @@ public class User {
 
 
     public void AddToUserList() throws IOException {
-        //String filename="C:\\Users\\arshp\\IdeaProjects\\FitCoder2\\UserData\\UserList.txt";
-        String filename = "/Users/mark231916/FitCoder2/UserData/UserList.txt";
+        String filename="C:\\Users\\arshp\\IdeaProjects\\FitCoder2\\UserData\\UserList.txt";
+        //String filename = "/Users/mark231916/FitCoder2/UserData/UserList.txt";
         //String filename = "/UserList.txt";
         //System.out.println(filename);
 
@@ -56,8 +57,8 @@ public class User {
     }
 
     public void MakeUserFile() throws IOException {
-        //String filename="C:\\Users\\arshp\\IdeaProjects\\FitCoder2\\UserData\\" + username;
-        String filename = "/Users/mark231916/FitCoder2/UserData/" + username;
+        String filename="C:\\Users\\arshp\\IdeaProjects\\FitCoder2\\UserData\\" + username;
+        //String filename = "/Users/mark231916/FitCoder2/UserData/" + username;
         //String filename = "/" + username;
         BufferedWriter writer = new BufferedWriter(new FileWriter(filename));
 
@@ -106,7 +107,24 @@ public class User {
             calorie.put(correctdate, cal);
         }
         else calorie.put(date,cal);
+
+        setArraylist();
         //MakeUserFile();
+    }
+
+    public void setArraylist()
+    {
+        CalDate.clear();
+        dailycalories.clear();
+
+        Set set = calorie.entrySet();
+        Iterator iterator=set.iterator();
+        while(iterator.hasNext())
+        {
+            Map.Entry entry = (Map.Entry) iterator.next();
+            CalDate.add(Long.parseLong((String)entry.getKey()));
+            dailycalories.add((int)entry.getValue());
+        }
     }
 
     public void setEmail(String email)  {
@@ -146,12 +164,12 @@ public class User {
             String [] arr=line.split(" ");
             if(username.equals(arr[0]))
             {
-                existn=false; break;
+                existn=false; return existn;
             }
             line = bufferedReader.readLine();
         }
 
-        if (existn) this.username = username;
+        this.username = username;
 
         return existn;
     }
@@ -244,5 +262,13 @@ public class User {
 
     public String getActivitymultiplier() {
         return activitymultiplier;
+    }
+
+    public ArrayList<Integer> getDailycalories() {
+        return dailycalories;
+    }
+
+    public ArrayList<Long> getCalDate() {
+        return CalDate;
     }
 }
