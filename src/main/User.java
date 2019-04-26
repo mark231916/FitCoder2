@@ -1,7 +1,14 @@
 package main;
 
+import javax.crypto.SecretKeyFactory;
+import javax.crypto.spec.PBEKeySpec;
 import java.io.*;
+import java.security.NoSuchAlgorithmException;
+import java.security.SecureRandom;
+import java.security.spec.InvalidKeySpecException;
+import java.security.spec.KeySpec;
 import java.util.*;
+
 
 
 public class User {
@@ -41,8 +48,8 @@ public class User {
 
 
     public void AddToUserList() throws IOException {
-        //String filename="C:\\Users\\arshp\\IdeaProjects\\FitCoder2\\UserData\\UserList.txt";
-        String filename = "/Users/mark231916/FitCoder2/UserData/UserList.txt";
+        String filename="C:\\Users\\arshp\\IdeaProjects\\FitCoder2\\UserData\\UserList.txt";
+        //String filename = "/Users/mark231916/FitCoder2/UserData/UserList.txt";
         //String filename = "/UserList.txt";
         //System.out.println(filename);
 
@@ -56,25 +63,10 @@ public class User {
         table.insert(username, password);
     }
 
-    private String passwordhash(String pwd)
-    {
-        /*
-        Use Horner's rule to compute the hashval and return it.
-        */
 
-        int hashcode=0;
-        for(int i=0; i<pwd.length(); i++)
-        {
-            hashcode=(37*hashcode+pwd.charAt(i))%pwd.length();
-            //System.out.println("hash");
-        }
-        //System.out.println("out");
-        return Float.toString(hashcode%pwd.length());
-
-    }
     public void MakeUserFile() throws IOException {
-        //String filename="C:\\Users\\arshp\\IdeaProjects\\FitCoder2\\UserData\\" + username;
-        String filename = "/Users/mark231916/FitCoder2/UserData/" + username;
+        String filename="C:\\Users\\arshp\\IdeaProjects\\FitCoder2\\UserData\\" + username;
+       // String filename = "/Users/mark231916/FitCoder2/UserData/" + username;
         //String filename = "/" + username;
         BufferedWriter writer = new BufferedWriter(new FileWriter(filename));
 
@@ -163,9 +155,19 @@ public class User {
 
     }
 
-    public void setPassword(String password) {
-        this.password = password;
-        //passwordhash(password);
+    public void setPassword(String password) throws NoSuchAlgorithmException, InvalidKeySpecException {
+      //this.password=hashit(password);
+        this.password=password;
+    }
+
+    public static String hashit(String password) throws NoSuchAlgorithmException, InvalidKeySpecException {
+        SecureRandom random = new SecureRandom();
+        byte[] salt=new byte[16];
+        random.nextBytes(salt);
+        KeySpec spec = new PBEKeySpec(password.toCharArray(), salt, 65536, 128);
+        SecretKeyFactory factory =SecretKeyFactory.getInstance("PBKDF2WithHmacSHA1");
+        byte [] hash=factory.generateSecret(spec).getEncoded();
+        return hash.toString();
     }
 
     public void setWeight(float weight) {
@@ -176,8 +178,8 @@ public class User {
     public boolean setUsername(String username) throws IOException {
         boolean existn =true;
 
-        //String filename="C:\\Users\\arshp\\IdeaProjects\\FitCoder2\\UserData\\UserList.txt";
-        String filename = "/Users/mark231916/FitCoder2/UserData/UserList.txt";
+        String filename="C:\\Users\\arshp\\IdeaProjects\\FitCoder2\\UserData\\UserList.txt";
+        //String filename = "/Users/mark231916/FitCoder2/UserData/UserList.txt";
         //String filename = "/UserList.txt";
 
         BufferedReader bufferedReader = new BufferedReader(new FileReader(filename));
@@ -317,5 +319,22 @@ public class User {
             list.add(map);
         }
         return list;
+    }
+
+    public Boolean changePassword (String oldPass, String newPass)
+    {
+        if (oldPass.equals(password))
+        {
+            try {
+                setPassword(newPass);
+            } catch (NoSuchAlgorithmException e) {
+                e.printStackTrace();
+            } catch (InvalidKeySpecException e) {
+                e.printStackTrace();
+            }
+            return true;
+        }
+
+        return false;
     }
 }
