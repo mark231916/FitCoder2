@@ -99,6 +99,7 @@ public class SignInAndDataCall {
             test.setCalorie("11/04/2173", 1112, true);
             test.setCalorie("07/07/2123", 1233, true);
             test.MakeUserFile();
+            test=null;
 
 
             SignInAndDataCall test2=new SignInAndDataCall();
@@ -107,7 +108,7 @@ public class SignInAndDataCall {
             {
                 System.out.println("Wrong Password");
             }
-            else System.out.println(test.getDailycalories() + "\n" + test.getCalDate());
+            else System.out.println(test.getGraph());
         } catch (Exception e) {
             e.printStackTrace();
         }

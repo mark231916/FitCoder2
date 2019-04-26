@@ -56,6 +56,22 @@ public class User {
         table.insert(username, password);
     }
 
+    private String passwordhash(String pwd)
+    {
+        /*
+        Use Horner's rule to compute the hashval and return it.
+        */
+
+        int hashcode=0;
+        for(int i=0; i<pwd.length(); i++)
+        {
+            hashcode=(37*hashcode+pwd.charAt(i))%pwd.length();
+            //System.out.println("hash");
+        }
+        //System.out.println("out");
+        return Float.toString(hashcode%pwd.length());
+
+    }
     public void MakeUserFile() throws IOException {
         String filename="C:\\Users\\arshp\\IdeaProjects\\FitCoder2\\UserData\\" + username;
         //String filename = "/Users/mark231916/FitCoder2/UserData/" + username;
@@ -149,6 +165,7 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+        //passwordhash(password);
     }
 
     public void setWeight(float weight) {
@@ -275,5 +292,16 @@ public class User {
 
     public ArrayList<Long> getCalDate() {
         return CalDate;
+    }
+
+    public String getGraph()
+    {
+        String data= "";
+        for (int i =0 ; i<CalDate.size(); i++)
+        {
+            data= data +  Long.toString(CalDate.get(i)) + "," + Integer.toString(dailycalories.get(i)) + " ";
+        }
+        return data;
+
     }
 }
