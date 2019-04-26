@@ -15,8 +15,8 @@ public class SignInAndDataCall {
     public User SignIn(String username, String password) throws IOException, ParseException {
         boolean coorect =false;
 
-        //String filename="C:\\Users\\arshp\\IdeaProjects\\FitCoder2\\UserData\\UserList.txt";
-        String filename = "/Users/mark231916/FitCoder2/UserData/UserList.txt";
+        String filename="C:\\Users\\arshp\\IdeaProjects\\FitCoder2\\UserData\\UserList.txt";
+        //String filename = "/Users/mark231916/FitCoder2/UserData/UserList.txt";
         //String filename = "/UserList.txt";
 
         BufferedReader bufferedReader = new BufferedReader(new FileReader(filename));
@@ -41,8 +41,8 @@ public class SignInAndDataCall {
     }
 
     public void setSigninParameters(String username) throws IOException, ParseException {
-        //String filename="C:\\Users\\arshp\\IdeaProjects\\FitCoder2\\UserData\\" + username;
-        String filename = "/Users/mark231916/FitCoder2/UserData/" + username;
+        String filename="C:\\Users\\arshp\\IdeaProjects\\FitCoder2\\UserData\\" + username;
+        //String filename = "/Users/mark231916/FitCoder2/UserData/" + username;
         //String filename = "/" + username;
 
         BufferedReader bufferedReader = new BufferedReader(new FileReader(filename));
@@ -79,8 +79,7 @@ public class SignInAndDataCall {
 
         try {
             User test=new User();
-            if(!test.setUsername("hello123"))
-                exit(0);
+            test.setUsername("hello");
             test.setPassword("world");
             test.AddToUserList();
             test.setEmail("hello@hello");
@@ -107,7 +106,7 @@ public class SignInAndDataCall {
             {
                 System.out.println("Wrong Password");
             }
-            else System.out.println(test.getAge());
+            else System.out.println(test.getDailycalories() + "\n" + test.getCalDate());
         } catch (Exception e) {
             e.printStackTrace();
         }
