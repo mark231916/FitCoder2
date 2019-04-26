@@ -4,6 +4,8 @@ import java.io.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
+import static java.lang.System.exit;
+
 public class SignInAndDataCall {
     User signin;
     public SignInAndDataCall(){
@@ -13,9 +15,9 @@ public class SignInAndDataCall {
     public User SignIn(String username, String password) throws IOException, ParseException {
         boolean coorect =false;
 
-        //String filename="C:\\Users\\arshp\\IdeaProjects\\FitCoder2\\UserData\\UserList.txt";
+        String filename="C:\\Users\\arshp\\IdeaProjects\\FitCoder2\\UserData\\UserList.txt";
         //String filename = "/Users/mark231916/FitCoder2/UserData/UserList.txt";
-        String filename = "/UserList.txt";
+        //String filename = "/UserList.txt";
 
         BufferedReader bufferedReader = new BufferedReader(new FileReader(filename));
             String line = bufferedReader.readLine();
@@ -39,9 +41,9 @@ public class SignInAndDataCall {
     }
 
     public void setSigninParameters(String username) throws IOException, ParseException {
-        //String filename="C:\\Users\\arshp\\IdeaProjects\\FitCoder2\\UserData\\" + username;
+        String filename="C:\\Users\\arshp\\IdeaProjects\\FitCoder2\\UserData\\" + username;
         //String filename = "/Users/mark231916/FitCoder2/UserData/" + username;
-        String filename = "/" + username;
+        //String filename = "/" + username;
 
         BufferedReader bufferedReader = new BufferedReader(new FileReader(filename));
 
@@ -77,7 +79,8 @@ public class SignInAndDataCall {
 
         try {
             User test=new User();
-            test.setUsername("hello");
+            if(!test.setUsername("hello123"))
+                exit(0);
             test.setPassword("world");
             test.AddToUserList();
             test.setEmail("hello@hello");
@@ -99,7 +102,7 @@ public class SignInAndDataCall {
 
 
             SignInAndDataCall test2=new SignInAndDataCall();
-            test=test2.SignIn("hell", "orld");
+            test=test2.SignIn("hello", "world");
             if (test==null)
             {
                 System.out.println("Wrong Password");
