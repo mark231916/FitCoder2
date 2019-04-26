@@ -304,4 +304,18 @@ public class User {
         return data;
 
     }
+
+    public List<Map<Object,Object>> getGraph2()
+    {
+        Map<Object, Object> map= null;
+        List<Map<Object,Object>> list=new ArrayList<Map<Object, Object>>();
+        for(int i=0; i<CalDate.size(); i++)
+        {
+            map = new HashMap<Object, Object>();
+            map.put("label", Long.toString(CalDate.get(i)));
+            map.put("y", dailycalories.get(i));
+            list.add(map);
+        }
+        return list;
+    }
 }
