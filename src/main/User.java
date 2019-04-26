@@ -157,18 +157,9 @@ public class User {
 
     public void setPassword(String password) throws NoSuchAlgorithmException, InvalidKeySpecException {
       //this.password=hashit(password);
-        this.password=password;
+      this.password=password;
     }
 
-    public static String hashit(String password) throws NoSuchAlgorithmException, InvalidKeySpecException {
-        SecureRandom random = new SecureRandom();
-        byte[] salt=new byte[16];
-        random.nextBytes(salt);
-        KeySpec spec = new PBEKeySpec(password.toCharArray(), salt, 65536, 128);
-        SecretKeyFactory factory =SecretKeyFactory.getInstance("PBKDF2WithHmacSHA1");
-        byte [] hash=factory.generateSecret(spec).getEncoded();
-        return hash.toString();
-    }
 
     public void setWeight(float weight) {
         this.weight = weight;
@@ -321,20 +312,4 @@ public class User {
         return list;
     }
 
-    public Boolean changePassword (String oldPass, String newPass)
-    {
-        if (oldPass.equals(password))
-        {
-            try {
-                setPassword(newPass);
-            } catch (NoSuchAlgorithmException e) {
-                e.printStackTrace();
-            } catch (InvalidKeySpecException e) {
-                e.printStackTrace();
-            }
-            return true;
-        }
-
-        return false;
-    }
 }
